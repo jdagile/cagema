@@ -1,0 +1,30 @@
+[30-Jun-2017 23:59:10 UTC] PHP Warning:  Uncaught exception 'ErrorException' with message 'require(/home/ramyislam88/public_html/app/Http/Routes/CrudRoutes/General_notices.php): failed to open stream: No such file or directory' in /home/ramyislam88/public_html/app/Http/Routes/CrudRoutes.php:2
+Stack trace:
+#0 /home/ramyislam88/public_html/app/Http/Routes/CrudRoutes.php(2): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require(/home/r...', '/home/ramyislam...', 2, Array)
+#1 /home/ramyislam88/public_html/app/Http/Routes/CrudRoutes.php(2): require()
+#2 /home/ramyislam88/public_html/app/Http/routes.php(55): require('/home/ramyislam...')
+#3 [internal function]: App\Providers\RouteServiceProvider->{closure}(Object(Illuminate\Routing\Router))
+#4 /home/ramyislam88/public_html/vendor/laravel/framework/src/Illuminate/Routing/Router.php(398): call_user_func(Object(Closure), Object(Illuminate\Routing\Router))
+#5 /home/ramyislam88/public_html/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(219): Illuminate\Routing\Router->gr in /home/ramyislam88/public_html/app/Http/Routes/CrudRoutes.php on line 2
+[30-Jun-2017 23:59:10 UTC] PHP Fatal error:  main(): Failed opening required '/home/ramyislam88/public_html/app/Http/Routes/CrudRoutes/General_notices.php' (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/ramyislam88/public_html/app/Http/Routes/CrudRoutes.php on line 2
+[30-Jun-2017 23:59:14 UTC] PHP Warning:  Uncaught exception 'ErrorException' with message 'require(/home/ramyislam88/public_html/app/Http/Routes/CrudRoutes/General_notices.php): failed to open stream: No such file or directory' in /home/ramyislam88/public_html/app/Http/Routes/CrudRoutes.php:2
+Stack trace:
+#0 /home/ramyislam88/public_html/app/Http/Routes/CrudRoutes.php(2): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require(/home/r...', '/home/ramyislam...', 2, Array)
+#1 /home/ramyislam88/public_html/app/Http/Routes/CrudRoutes.php(2): require()
+#2 /home/ramyislam88/public_html/app/Http/routes.php(55): require('/home/ramyislam...')
+#3 [internal function]: App\Providers\RouteServiceProvider->{closure}(Object(Illuminate\Routing\Router))
+#4 /home/ramyislam88/public_html/vendor/laravel/framework/src/Illuminate/Routing/Router.php(398): call_user_func(Object(Closure), Object(Illuminate\Routing\Router))
+#5 /home/ramyislam88/public_html/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(219): Illuminate\Routing\Router->gr in /home/ramyislam88/public_html/app/Http/Routes/CrudRoutes.php on line 2
+[30-Jun-2017 23:59:14 UTC] PHP Fatal error:  main(): Failed opening required '/home/ramyislam88/public_html/app/Http/Routes/CrudRoutes/General_notices.php' (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/ramyislam88/public_html/app/Http/Routes/CrudRoutes.php on line 2
+[30-Jun-2017 23:59:45 UTC] PHP Warning:  Uncaught exception 'ErrorException' with message 'require(/home/ramyislam88/public_html/app/Http/Routes/CrudRoutes/General_notices.php): failed to open stream: No such file or directory' in /home/ramyislam88/public_html/app/Http/Routes/CrudRoutes.php:2
+Stack trace:
+#0 /home/ramyislam88/public_html/app/Http/Routes/CrudRoutes.php(2): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require(/home/r...', '/home/ramyislam...', 2, Array)
+#1 /home/ramyislam88/public_html/app/Http/Routes/CrudRoutes.php(2): require()
+#2 /home/ramyislam88/public_html/app/Http/routes.php(55): require('/home/ramyislam...')
+#3 [internal function]: App\Providers\RouteServiceProvider->{closure}(Object(Illuminate\Routing\Router))
+#4 /home/ramyislam88/public_html/vendor/laravel/framework/src/Illuminate/Routing/Router.php(398): call_user_func(Object(Closure), Object(Illuminate\Routing\Router))
+#5 /home/ramyislam88/public_html/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(219): Illuminate\Routing\Router->gr in /home/ramyislam88/public_html/app/Http/Routes/CrudRoutes.php on line 2
+[30-Jun-2017 23:59:45 UTC] PHP Fatal error:  main(): Failed opening required '/home/ramyislam88/public_html/app/Http/Routes/CrudRoutes/General_notices.php' (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/ramyislam88/public_html/app/Http/Routes/CrudRoutes.php on line 2
+[02-Jul-2017 22:28:36 UTC] PHP Fatal error:  Cannot redeclare class Bookstore in /home/ramyislam88/public_html/database/migrations/2017_07_02_222836_Bookstore.php on line 32
+[02-Jul-2017 22:28:41 UTC] PHP Fatal error:  Cannot redeclare class Bookstore in /home/ramyislam88/public_html/database/migrations/2017_07_02_222836_Bookstore.php on line 0
+[13-Jul-2017 05:20:13 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/ramyislam88/public_html/app/Http/Controllers/UsersController.php on line 123
