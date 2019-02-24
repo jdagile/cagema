@@ -138,7 +138,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Está Activo: </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input ng-model='valoresacumuladosporfasefenologica.estaactivo'  value="<% valoresacumuladosporfasefenologica.estaactivo %>" id="estaactivo"  type="checkbox"  name='estaactivo'  ><ul class="parsley-errors-list" ></ul>
-            </div>
+                            </div>
                         </div>
 
 <input ng-model='valoresacumuladosporfasefenologica.id' type="text" id="id" name="id" style="display: none" />

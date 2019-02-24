@@ -30,12 +30,17 @@ Class UsersController extends Controller
         return view('auth.login');
     }
 
+    public function Login1()
+    {
+        return view('auth.login1');
+    }
     public function auth(Request $request)
     {
         if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
             $UserInfo = User::where('email', $request->input('email'))->first();
             Session::put('name', $UserInfo->name);
               Session::put('email', $UserInfo->email);
+              Session::put('region_id', $UserInfo->regions_id);
             return redirect('/');
         } else {
             return redirect('/login');
@@ -139,8 +144,9 @@ Class UsersController extends Controller
 
     public function Profile()
     {
+          $Regions= Region::all();
         $User = Auth::user();
-        return View('users/profile', array('user' => $User->toJson()));
+        return View('profile', array('user' => $User->toJson(),'regions' => $Regions->toJson() ));
     }
 
     public function ProfileUpdate(Request $request)
@@ -162,7 +168,7 @@ Class UsersController extends Controller
         endif;
 
 
-        
+
     }
 
     protected function UploadProfilePic(Request $request)

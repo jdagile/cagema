@@ -38,7 +38,7 @@ class ProductoFaseElementoRangoControler extends Controller
       ->join('elementos', 'productofaseelementorango.elementos_id', '=', 'elementos.id')
       ->join('tipodealerta', 'productofaseelementorango.tipodealerta_id', '=', 'tipodealerta.id')
       ->join('tipodealtura', 'productofaseelementorango.tipodealtura_id', '=', 'tipodealtura.id')
-      ->orderBy('productofaseelementorango.fasefenologica_id','DESC')
+      ->orderBy('fasefenologica.id','ASC')
       ->select('productofaseelementorango.id as id','tipodeproducto.descripcion as tipodeproducto'  ,'fasefenologica.descripcion as fasefenologica'  ,'elementos.descripcion as elemento','tipodealerta.descripcion as tipodealerta' , 'tipodealtura.descripcion as tipodealtura', 'productofaseelementorango.valorminimo' , 'productofaseelementorango.valormaximo' , 'productofaseelementorango.estaactivo as estaactivo' )
       ->get();
       $valores = array();

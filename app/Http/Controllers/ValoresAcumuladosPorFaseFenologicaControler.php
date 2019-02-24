@@ -63,7 +63,7 @@ class ValoresAcumuladosPorFaseFenologicaControler extends Controller
 
       $TipoDeProductos = TipoDeProducto::where('estaactivo', true)->get();
       $FaseFenologicas =  FaseFenologica::where('estaactivo', true)->get();
-      $Elementos= Elementos::where('estaactivo', true)->get();
+      $Elementos= Elementos::where('estaactivo', true)->where('esacumulado', true)->get();
       return View('setting/valoresacumuladosporfasefenologicas', array( 'tipodeproductos' => $TipoDeProductos->toJson() ,'fasefenologicas'=> $FaseFenologicas->toJson(),'elementos' => $Elementos->toJson()  ));
 
     }

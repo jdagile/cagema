@@ -14,7 +14,7 @@ class CreateValoresElementosTable extends Migration
     {
       Schema::create('valoreselementos', function (Blueprint $table) {
         $table->increments('id');
-        $table->integer('estaciones_id')->references('id')->on('esaciones');
+        $table->integer('estaciones_id')->references('id')->on('estaciones');
          $table->integer('elementos_id')->references('id')->on('elementos');
          $table->string('unidaddemedida_simbolo',8)->references('simbolo')->on('unidaddemedida');
          $table->timestamp('fechaestacion') ;

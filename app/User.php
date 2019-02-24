@@ -32,7 +32,7 @@ use Authenticatable, EntrustUserTrait;
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'regions_id'
     ];
 
     /**

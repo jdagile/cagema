@@ -26,11 +26,11 @@
                       <br>
                       <br>
 
-                      <td><img src ="{{ asset('app/media/img//logos/usaid.png')}}"  width="100%" alt ="logo"></td>
-                      <td><img src ="{{ asset('app/media/img//logos/gema.png')}}"  width="100%" alt ="logo"></td>
+                      <td><img src ="{{ asset('app/media/img//logos/cicoh.png')}}"  width="70%" alt ="logo"></td>
+                      <td><img src ="{{ asset('app/media/img//logos/usaid.png')}}"  width="70%" alt ="logo"></td>
                     </tr>
                     </table>
-                   <h6>CICOH ALERT se hace posible gracias al apoyo del pueblo estadounidense a través de la Agencia de los Estados Unidos para el Desarrollo Internacional (USAID). El contenido de este sistema son responsabilidad exclusiva de DAI y no reflejan necesariamente los puntos de vista de la Agencia de Estados Unidos para el Desarrollo Internacional o del Gobierno de los Estados Unidos.</h6>
+                   <h6>CICOH ALERT se hace posible gracias al apoyo del pueblo estadounidense a través de la Agencia de los Estados Unidos para el Desarrollo Internacional (USAID). El contenido de este sistema es responsabilidad exclusiva de DAI y no refleja necesariamente los puntos de vista de la Agencia de Estados Unidos para el Desarrollo Internacional o del Gobierno de los Estados Unidos.</h6>
 
                     </div>
                   <!-- form -

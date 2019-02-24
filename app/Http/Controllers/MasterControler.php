@@ -167,18 +167,7 @@ foreach ($estaciones as $estacion) {
                      if(  ($item['element_id']== $productoFaseElementoRango['elementos_id'])  )
                      {
 
-//Validacion de valor contra Rango.
-if ($item['valor'] >= $productoFaseElementoRango['valorminimo'] && $item['valor'] <= $productoFaseElementoRango['valormaximo']) {
-  $estacionesAlertasValores = array([]);
-  $estacionesAlertasValores =array_add($estacionesAlertasValores, 'valoreselementos_id', $valoreselementos_id);
-  $estacionesAlertasValores =array_add($estacionesAlertasValores, 'tipodealerta_id', $productoFaseElementoRango['tipodealerta_id']);
-  $estacionesAlertasControler = new EstacionesAlertasControler();
-  $estacionesAlertas = $estacionesAlertasControler->store($estacionesAlertasValores);
-      echo ' ---------se registro en estacionesAlertas       '.'<br>';
-  echo $item['valor'].$item['symbol']." "." Se registro una alerta entre el valor minimo : ".$productoFaseElementoRango['valorminimo']."--y el valor maximo : ".$productoFaseElementoRango['valormaximo'].'<br>';
 
-}
-//Fin De validacion de valor contra Rango
 
 
 

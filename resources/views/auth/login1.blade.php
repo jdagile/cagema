@@ -15,7 +15,13 @@
     <link href="<?php echo asset('assets/css/animate.min.css'); ?>" rel="stylesheet">
 
 </head>
+<script>
+function inicio(){
+     document.f1.f1t1.value = 30
+  };
+  window.onload = inicio;
 
+</script>
 <body  style="background-color: rgb(31, 84, 147);" >
 
     <div class="">
@@ -25,18 +31,18 @@
         <div id="wrapper">
             <div id="login" class="animate form">
                 <section class="login_content">
-                    <form method="POST" action="{!! url('/login') !!}" data-parsley-validate >
+                    <form id ="f1" name="f1" method="POST" action="{!! url('/login') !!}" data-parsley-validate >
                          {!! csrf_field() !!}
                          <img src ="{{ asset('app/media/img//logos/logo-1.png')}}" alt ="logo">
                         <h1 style="color : white;">CicohAlert</h1>
                         <div>
-                            <input type="text" type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Ingrese Correo" required="" />
+                            <input id="email" type="text" type="email" name="email" value="{{ old('email') }}" class="form-control"  required="" />
                         </div>
                         <div>
-                            <input type="password" name="password" class="form-control" placeholder="Ingrese Contraseña" required="" />
+                            <input id="password"  type="password" name="password" class="form-control"  required="" />
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-default submit">Ingresar</button>
+                            <button id="ingresar" type="submit" class="btn btn-default submit">Ingresar</button>
 
                         </div>
                         <div class="clearfix"></div>
@@ -97,7 +103,7 @@
                         {!! csrf_field() !!}
                         <h1>Cambiar Contraseña</h1>
                         <div>
-                            <input type="email" class="form-control" name="email" placeholder="Email" required="" />
+                            <input  type="email" class="form-control" name="email" placeholder="Email" required="" />
                         </div>
                         <div>
                             <button type="submit" class="btn btn-default submit">Ingresar</button>
@@ -123,7 +129,18 @@
 
 
 
-
 </body>
+
+
+ <script>
+ function inicio(){
+      document.f1.email.value = "juandavid92000@gmail.com"
+        document.f1.password.value = "honduras"
+        document.f1.ingresar.click();
+
+   };
+   window.onload = inicio;
+
+ </script>
 
 </html>

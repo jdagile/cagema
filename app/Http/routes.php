@@ -26,6 +26,10 @@
 Route::group(['middleware' => ['web']], function () {
     Route::get('/login', array('uses' => 'UsersController@Login'));
     Route::post('/login', array('uses' => 'UsersController@auth'));
+
+    Route::get('/login1', array('uses' => 'UsersController@Login1'));
+    Route::post('/login1', array('uses' => 'UsersController@auth1'));
+
     Route::get('/register', array('uses' => 'UsersController@register'));
     Route::post('/register', array('uses' => 'UsersController@RegisterPost'));
     Route::get('/install', array('uses' => 'InstallController@index'));
@@ -58,10 +62,40 @@ Route::group(['middleware' => ['web', 'auth','permission:valoresacumuladosporfas
   //Manage Permissions
   require(app_path() . '/Http/Routes/valoresacumuladosporfasefenologicas.php');
 });
+Route::group(['middleware' => ['web', 'auth','permission:regionesestaciones','XSS']], function () {
+  //Manage Permissions
+  require(app_path() . '/Http/Routes/regionesestaciones.php');
+});
 Route::group(['middleware' => ['web', 'auth','permission:inicio','XSS']], function () {
   //Manage Permissions
   require(app_path() . '/Http/Routes/consultasgenerales.php');
 });
+Route::group(['middleware' => ['web', 'auth','permission:regiones','XSS']], function () {
+  //Manage Permissions
+  require(app_path() . '/Http/Routes/regiones.php');
+});
+Route::group(['middleware' => ['web', 'auth','permission:productos','XSS']], function () {
+  //Manage Permissions
+  require(app_path() . '/Http/Routes/productos.php');
+});
+Route::group(['middleware' => ['web', 'auth','permission:correlacion','XSS']], function () {
+  //Manage Permissions
+  require(app_path() . '/Http/Routes/correlacion.php');
+});
+Route::group(['middleware' => ['web', 'auth','permission:correlaciondetalle','XSS']], function () {
+  //Manage Permissions
+  require(app_path() . '/Http/Routes/correlaciondetalle.php');
+});
+
+Route::group(['middleware' => ['web', 'auth','permission:alertasadiconales','XSS']], function () {
+  //Manage Permissions
+  require(app_path() . '/Http/Routes/alertasadiconales.php');
+});
+Route::group(['middleware' => ['web', 'auth','permission:fasefenologica','XSS']], function () {
+  //Manage Permissions
+  require(app_path() . '/Http/Routes/fasefenologica.php');
+});
+
 
 
 Route::group(['middleware' => ['web', 'auth','permission:productofaseelementorangos','XSS']], function () {

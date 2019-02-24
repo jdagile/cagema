@@ -117,22 +117,44 @@
                                     <li><a><i class="fa fa-user-circle"></i> Configuración de Cuenta <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" style="display: none">
                                             <?php if (in_array('user-profile-view', $user_permissions_names)): ?>
-                                                <li><a href="<?php echo Route('userprofile'); ?>">User Profile</a></li>
+                                                <li><a href="<?php echo Route('userprofile'); ?>">Perfil de Usuario</a></li>
                                             <?php endif; ?>
                                         </ul>
                                     </li>
 
                                     <?php endif; ?>
 
-                                    <?php if (!empty(array_intersect(array('valoresacumuladosporfasefenologicas','productofaseelementorangos'), $user_permissions_names))): ?>
+                                    <?php if (!empty(array_intersect(array('valoresacumuladosporfasefenologicas','productofaseelementorangos' ,'regionesestaciones'), $user_permissions_names))): ?>
                                     <li><a><i class="fa fa-cog"></i>Parametrización <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" style="display: none">
+                                          <?php if (in_array('productos', $user_permissions_names)): ?>
+                                                  <li><a href="<?php echo Route('productos'); ?>">Productos</a></li>
+                                           <?php endif; ?>
+                                           <?php if (in_array('fasefenologica', $user_permissions_names)): ?>
+                                                   <li><a href="<?php echo Route('fasefenologica'); ?>">Fase-Fenologica</a></li>
+                                            <?php endif; ?>
+                                          <?php if (in_array('regiones', $user_permissions_names)): ?>
+                                                  <li><a href="<?php echo Route('regiones'); ?>">Regiones</a></li>
+                                           <?php endif; ?>
+                                          <?php if (in_array('regionesestaciones', $user_permissions_names)): ?>
+                                                  <li><a href="<?php echo Route('regionesestaciones'); ?>">Regiones Estaciones</a></li>
+                                           <?php endif; ?>
                                             <?php if (in_array('valoresacumuladosporfasefenologicas', $user_permissions_names)): ?>
                                                 <li><a href="<?php echo Route('valoresacumuladosporfasefenologicas'); ?>">Valores Acumulados</a></li>
                                             <?php endif; ?>
                                             <?php if (in_array('productofaseelementorangos', $user_permissions_names)): ?>
-                                                    <li><a href="<?php echo Route('productofaseelementorangos'); ?>">Producto Fase Elemento Rango</a></li>
+                                                    <li><a href="<?php echo Route('productofaseelementorangos'); ?>">Producto-Fase-Elemento-Rango</a></li>
                                              <?php endif; ?>
+                                             <?php if (in_array('correlacion', $user_permissions_names)): ?>
+                                                     <li><a href="<?php echo Route('correlacion'); ?>">Correlacion</a></li>
+                                              <?php endif; ?>
+                                              <?php if (in_array('correlaciondetalle', $user_permissions_names)): ?>
+                                                      <li><a href="<?php echo Route('correlaciondetalle'); ?>">Correlacion-Detalle</a></li>
+                                               <?php endif; ?>
+                                               <?php if (in_array('alertasadiconales', $user_permissions_names)): ?>
+                                                       <li><a href="<?php echo Route('alertasadiconales'); ?>">Alertas adicinales</a></li>
+                                                <?php endif; ?>
+
                                         </ul>
                                     </li>
                                     <?php endif; ?>
@@ -191,18 +213,10 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
                                         <?php if (in_array('user-profile-view', $user_permissions_names)): ?>
-                                        <li><a href="{{ route('userprofile') }}">  Profile</a></li>
+                                        <li><a href="{{ route('userprofile') }}"> Editar Perfil</a></li>
                                         <?php endif; ?>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <span class="badge bg-red pull-right">50%</span>
-                                                <span>Settings</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">Help</a>
-                                        </li>
-                                        <li><a href="<?php echo Route('logout'); ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+
+                                      <li><a href="<?php echo Route('logout'); ?>"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -210,7 +224,7 @@
                                 <li role="presentation" class="dropdown">
                                     <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                         <i class="fa fa-envelope-o"></i>
-                                        <span class="badge bg-green">0</span>
+                                        <span class="badge bg-blue">0</span>
                                     </a>
                                     <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
 
@@ -262,6 +276,8 @@
 <script type="text/javascript" src="<?php echo asset('assets/js/flot/jquery.flot.spline.js') ?>"></script>
 
 <script type="text/javascript" src="<?php echo asset('assets/js/flot/jquery.flot.resize.js') ?>"></script>
+<script type="text/javascript" src="<?php echo asset('assets/js/flot/jquery.flot.time.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo asset('assets/js/flot/jquery.flot.axislabels.js') ?>"></script>
 
 
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
