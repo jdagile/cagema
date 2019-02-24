@@ -127,8 +127,8 @@
                                     <?php if (!empty(array_intersect(array('valoresacumuladosporfasefenologicas','productofaseelementorangos' ,'regionesestaciones'), $user_permissions_names))): ?>
                                     <li><a><i class="fa fa-cog"></i>Parametrización <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" style="display: none">
-                                          <?php if (in_array('productos', $user_permissions_names)): ?>
-                                                  <li><a href="<?php echo Route('productos'); ?>">Productos</a></li>
+                                          <?php if (in_array('tipodeproducto', $user_permissions_names)): ?>
+                                                  <li><a href="<?php echo Route('tipodeproducto'); ?>">Tipo de Producto</a></li>
                                            <?php endif; ?>
                                            <?php if (in_array('fasefenologica', $user_permissions_names)): ?>
                                                    <li><a href="<?php echo Route('fasefenologica'); ?>">Fase-Fenologica</a></li>

@@ -74,9 +74,9 @@ Route::group(['middleware' => ['web', 'auth','permission:regiones','XSS']], func
   //Manage Permissions
   require(app_path() . '/Http/Routes/regiones.php');
 });
-Route::group(['middleware' => ['web', 'auth','permission:productos','XSS']], function () {
+Route::group(['middleware' => ['web', 'auth','permission:tipodeproducto','XSS']], function () {
   //Manage Permissions
-  require(app_path() . '/Http/Routes/productos.php');
+  require(app_path() . '/Http/Routes/tipodeproducto.php');
 });
 Route::group(['middleware' => ['web', 'auth','permission:correlacion','XSS']], function () {
   //Manage Permissions

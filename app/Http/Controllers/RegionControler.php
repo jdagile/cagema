@@ -151,16 +151,7 @@ class RegionControler extends Controller
        }
 
 
-         private function verificarExistencia($region_id,$id_tipodealtura)
-         {
-
-         $Regiones = null;
-         $Existeregiones =  Regiones::where('region_id' , '=', $All_input['regiones'])
-                                              ->where('id_tipodealtura' , '=' ,$All_input['tipodealtura'])
-                                               ->exists();
-
-                      return $Existeregiones;
-         }
+      
 
 
 
