@@ -131,7 +131,7 @@
                                                   <li><a href="<?php echo Route('tipodeproducto'); ?>">Tipo de Producto</a></li>
                                            <?php endif; ?>
                                            <?php if (in_array('fasefenologica', $user_permissions_names)): ?>
-                                                   <li><a href="<?php echo Route('fasefenologica'); ?>">Fase-Fenologica</a></li>
+                                                   <li><a href="<?php echo Route('fasefenologica'); ?>">Fases Fenológicas </a></li>
                                             <?php endif; ?>
                                           <?php if (in_array('regiones', $user_permissions_names)): ?>
                                                   <li><a href="<?php echo Route('regiones'); ?>">Regiones</a></li>
@@ -139,20 +139,21 @@
                                           <?php if (in_array('regionesestaciones', $user_permissions_names)): ?>
                                                   <li><a href="<?php echo Route('regionesestaciones'); ?>">Regiones Estaciones</a></li>
                                            <?php endif; ?>
-                                            <?php if (in_array('valoresacumuladosporfasefenologicas', $user_permissions_names)): ?>
-                                                <li><a href="<?php echo Route('valoresacumuladosporfasefenologicas'); ?>">Valores Acumulados</a></li>
-                                            <?php endif; ?>
+
                                             <?php if (in_array('productofaseelementorangos', $user_permissions_names)): ?>
                                                     <li><a href="<?php echo Route('productofaseelementorangos'); ?>">Producto-Fase-Elemento-Rango</a></li>
                                              <?php endif; ?>
-                                             <?php if (in_array('correlacion', $user_permissions_names)): ?>
-                                                     <li><a href="<?php echo Route('correlacion'); ?>">Correlacion</a></li>
+                                             <?php if (in_array('correlacionmaestros', $user_permissions_names)): ?>
+                                                     <li><a href="<?php echo Route('correlacionmaestros'); ?>">Correlación</a></li>
                                               <?php endif; ?>
                                               <?php if (in_array('correlaciondetalle', $user_permissions_names)): ?>
                                                       <li><a href="<?php echo Route('correlaciondetalle'); ?>">Correlacion-Detalle</a></li>
                                                <?php endif; ?>
                                                <?php if (in_array('alertasadiconales', $user_permissions_names)): ?>
                                                        <li><a href="<?php echo Route('alertasadiconales'); ?>">Alertas adicinales</a></li>
+                                                <?php endif; ?>
+                                                <?php if (in_array('valoresacumuladosporfasefenologicas', $user_permissions_names)): ?>
+                                                    <li><a href="<?php echo Route('valoresacumuladosporfasefenologicas'); ?>">Valores Acumulados</a></li>
                                                 <?php endif; ?>
 
                                         </ul>
@@ -227,8 +228,6 @@
                                         <span class="badge bg-blue">0</span>
                                     </a>
                                     <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
-
-
                                         <li>
                                             <div class="text-center">
                                                 <a>
@@ -254,6 +253,7 @@
                     This is the master content.
                     @show
                 </div>
+
                 <!-- /page content -->
             </div>
 
@@ -294,7 +294,9 @@ $('textarea.editor').ckeditor();
             </div>
         </div>
         @section('footer')
+
         @show
+
     </body>
 
 </html>

@@ -80,8 +80,8 @@
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button type="reset" class="btn btn-primary cancel">Cancel</button>
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="reset" class="btn btn-primary cancel">Cancelar</button>
+                                <button type="submit" class="btn btn-success">Guardar</button>
                             </div>
                         </div>
 

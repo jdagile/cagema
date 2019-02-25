@@ -37,6 +37,7 @@ class TipoDeProductoControler extends Controller
       {
         $consulta=  DB::table('tipodeproducto')
        ->select('tipodeproducto.id as id','tipodeproducto.descripcion' ,'tipodeproducto.estaactivo as estaactivo' )
+       ->orderBy('tipodeproducto.id','ASC')
         ->get();
         $valores = array();
         foreach($consulta as $r){

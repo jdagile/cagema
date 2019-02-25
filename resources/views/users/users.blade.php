@@ -49,11 +49,11 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
+                                <th>Nombre</th>
                                 <th>E-mail</th>
-                                <th>Created At</th>
-                                <th>Updated At</th>
-                                <th>Actions</th>
+                                <th>Creado</th>
+                                <th>Editado At</th>
+                                <th>Acción</th>
                             </tr>
                         </thead>
                     </table>

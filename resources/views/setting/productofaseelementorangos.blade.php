@@ -192,7 +192,7 @@
             {data: 'estaactivo', name: 'estaactivo'},
             {data: 'action', name: 'action',searchable:false}
         ],
-        order: [[1, 'asc']]
+      
     });
         });
 

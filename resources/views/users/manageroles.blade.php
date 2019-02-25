@@ -11,13 +11,13 @@
 
         /* set the size of the datepicker search control for Order Date*/
         #ui-datepicker-div { font-size:11px; }
-        
+
         /* set the size of the autocomplete search control*/
         .ui-menu-item {
             font-size: 11px;
         }
 
-         .ui-autocomplete { font-size: 11px; position: absolute; cursor: default;z-index:5000 !important;}      
+         .ui-autocomplete { font-size: 11px; position: absolute; cursor: default;z-index:5000 !important;}
 
     </style>
                 <div class="">
@@ -71,10 +71,10 @@
                                     <table id="jqGrid"></table>
     <div id="jqGridPager"></div>
 
-    <script type="text/javascript"> 
+    <script type="text/javascript">
         $(document).ready(function () {
-            
-            
+
+
         	var template = "<div style='margin-left:15px;'><div> ID <sup>*</sup>:</div><div> {id} </div>";
 			template += "<div> Role Name: </div><div>{name} </div>";
 			template += "<div> <input type='hidden' name='_token' id='_token' value='{{{ csrf_token() }}}' /></div>";
@@ -101,7 +101,7 @@
                 ],
                  viewrecords: true,width: 1000,height: 300,rowNum: 20,multiselect: true,pager: "#jqGridPager"
             });
-            
+
               // We need to have a navigation bar in order to add custom buttons to it
             $('#jqGrid').navGrid('#jqGridPager',
                 { edit: true, add: true, del: true, search: true, refresh: true, view: true, position: "left", cloneToTop: true },
@@ -118,7 +118,7 @@
                 }}
                 );
         });
- 
+
    </script>
                                 </div>
                             </div>
@@ -131,10 +131,10 @@
                     </div>
                 </div>
     @stop
-    
+
     @section('footer')
     <script type="text/ecmascript" src="<?php echo asset('assets/js/jquerygrid/trirand/i18n/grid.locale-en.js') ?>"></script>
-    <!-- This is the Javascript file of jqGrid -->   
+    <!-- This is the Javascript file of jqGrid -->
     <script type="text/ecmascript" src="<?php echo asset('assets/js/jquerygrid/trirand/jquery.jqGrid.min.js') ?>"></script>
     <script type="text/ecmascript" src="<?php echo asset('assets/js/jquerygrid/jquery-ui.min.js') ?>"></script>
 

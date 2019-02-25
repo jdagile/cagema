@@ -48,12 +48,7 @@
                                         </li>
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Settings 1</a>
-                                                </li>
-                                                <li><a href="#">Settings 2</a>
-                                                </li>
-                                            </ul>
+
                                         </li>
                                         <li><a href="#"><i class="fa fa-close"></i></a>
                                         </li>
@@ -65,12 +60,10 @@
                                     <thead>
                                         <tr>
                                          <th>ID</th>
-                                         <th>Name</th>
-                                         <th>Display Name</th>
-                                         <th>Description</th>
-                                         <th>Created At</th>
-                                         <th>Updated At</th>
-                                         <th>Action</th>
+                                         <th>Nombre</th>
+                                         <th>Nombre Desplegado</th>
+                                         <th>Descripcion</th>
+                                             <th>Acción</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -146,9 +139,7 @@
             {data: 'name', name: 'name'},
             {data: 'display_name', name: 'display_name'},
             {data: 'description', name: 'description'},
-            {data: 'created_at', name: 'created_at'},
-            {data: 'updated_at', name: 'updated_at'},
-            {data: 'action', name: 'action',searchable:false}
+              {data: 'action', name: 'action',searchable:false}
         ],
         order: [[1, 'asc']]
     });

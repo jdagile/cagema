@@ -9,14 +9,14 @@
        {$interpolateProvider.startSymbol('<%');$interpolateProvider.endSymbol('%>');});
        ngRolesApp.controller('ngRolesController', function($scope) {
        $scope.role=[];
-       $scope.role.perms=[]; 
+       $scope.role.perms=[];
        $scope.master=[3];
        $scope.permissions=JSON.parse('{!! $perms !!}');
         $('#roles-form').Edit({Type:'GET',Data:{'_token':'<?php echo csrf_token();?>'},ModuleName:'roles',ModuleItemName:'role',NgAppName:'ngRolesApp',callback:function(){
         $scope.role.perms = $.map($scope.role.perms, function(value, index) {return value.id;});
         }});
        $('#roles-form').Delete({Type:'GET',Data:{'_token':'<?php echo csrf_token();?>'},ModuleName:'roles',ModuleItemName:'role',NgAppName:'ngRolesApp'});
-       $('#roles-form').Submit({Type:'POST',Data:{'_token':'<?php echo csrf_token();?>'},ModuleName:'roles',ModuleItemName:'role',NgAppName:'ngRolesApp'});              
+       $('#roles-form').Submit({Type:'POST',Data:{'_token':'<?php echo csrf_token();?>'},ModuleName:'roles',ModuleItemName:'role',NgAppName:'ngRolesApp'});
     });
 </script>
 @stop
@@ -71,15 +71,15 @@
                                     <thead>
                                         <tr>
                                          <th>ID</th>
-                                         <th>Name</th>
-                                         <th>Display Name</th>
-                                         <th>Description</th>
-                                         <th>Created At</th>
-                                         <th>Updated At</th>
-                                         <th>Actions</th>
+                                         <th>Nombre</th>
+                                         <th>Nombre desplegable</th>
+                                         <th>Descripción</th>
+                                         <th>Creado</th>
+                                         <th>Editado</th>
+                                         <th>Acción</th>
                                         </tr>
                                     </thead>
-                                </table>         
+                                </table>
                                 </div>
                             </div>
                         </div>
@@ -134,8 +134,8 @@
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button type="reset" class="btn btn-primary cancel">Cancel</button>
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="reset" class="btn btn-primary cancel">Cancelar</button>
+                                <button type="submit" class="btn btn-success">Guardar</button>
                             </div>
                         </div>
 
@@ -143,14 +143,14 @@
       </div>
     </div>
   </div>
-</div>                    
+</div>
                 </div>
     @stop
-    
+
     @section('footer')
-    <script type="text/javascript"> 
+    <script type="text/javascript">
         var ListTable;
-        $(document).ready(function () {    
+        $(document).ready(function () {
         ListTable = $('#roles-table').DataTable({
         processing: true,
         serverSide: true,
@@ -167,7 +167,7 @@
         order: [[1, 'asc']]
     });
         });
- 
+
    </script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
     @stop

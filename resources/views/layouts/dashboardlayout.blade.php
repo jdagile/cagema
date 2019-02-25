@@ -498,15 +498,7 @@ NProgress.done();
 </script>-->
 <!-- /datepicker -->
 <!-- /footer content -->
-<footer>
 
-<table align="center" >
-<tr>
-<td><img src ="{{ asset('app/media/img//logos/usaid.png')}}"  width="20%" alt ="logo"></td>
-<td><img src ="{{ asset('app/media/img//logos/gema.png')}}"  width="20%" alt ="logo"></td>
-
-</tr>
-</table>
 Copyrig {{date('Y')}}
 </footer>
 @section('footer')

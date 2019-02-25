@@ -78,9 +78,13 @@ Route::group(['middleware' => ['web', 'auth','permission:tipodeproducto','XSS']]
   //Manage Permissions
   require(app_path() . '/Http/Routes/tipodeproducto.php');
 });
-Route::group(['middleware' => ['web', 'auth','permission:correlacion','XSS']], function () {
+Route::group(['middleware' => ['web', 'auth','permission:fasefenologica','XSS']], function () {
   //Manage Permissions
-  require(app_path() . '/Http/Routes/correlacion.php');
+  require(app_path() . '/Http/Routes/fasefenologica.php');
+});
+Route::group(['middleware' => ['web', 'auth','permission:correlacionmaestros','XSS']], function () {
+  //Manage Permissions
+  require(app_path() . '/Http/Routes/correlacionmaestro.php');
 });
 Route::group(['middleware' => ['web', 'auth','permission:correlaciondetalle','XSS']], function () {
   //Manage Permissions
@@ -91,10 +95,7 @@ Route::group(['middleware' => ['web', 'auth','permission:alertasadiconales','XSS
   //Manage Permissions
   require(app_path() . '/Http/Routes/alertasadiconales.php');
 });
-Route::group(['middleware' => ['web', 'auth','permission:fasefenologica','XSS']], function () {
-  //Manage Permissions
-  require(app_path() . '/Http/Routes/fasefenologica.php');
-});
+
 
 
 

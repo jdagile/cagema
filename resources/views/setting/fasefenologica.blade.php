@@ -5,12 +5,12 @@
     <script type="text/javascript" src="<?php echo asset('assets/js/ng-form-plugin.js'); ?>"></script>
     <script src="{{asset('assets/js/angular.js')}}" ></script>
     <script stype="text/javascript">
-    var ngProductosApp = angular.module('ngProductosApp', [], function($interpolateProvider)
+    var ngFaseFenosApp = angular.module('ngFaseFenosApp', [], function($interpolateProvider)
        {$interpolateProvider.startSymbol('<%');$interpolateProvider.endSymbol('%>');});
-       ngProductosApp.controller('ngtipodeproductoController', function($scope) {
+       ngFaseFenosApp.controller('ngfasefenologicaController', function($scope) {
        $scope.producto=[];
-       $('#tipodeproducto-form').Edit({Type:'GET',Data:{'_token':'<?php echo csrf_token();?>'},ModuleName:'tipodeproducto',ModuleItemName:'producto',NgAppName:'ngProductosApp'});
-       $('#tipodeproducto-form').Submit({Type:'POST',Data:{'_token':'<?php echo csrf_token();?>'},ModuleName:'producto',ModuleItemName:'producto',NgAppName:'ngProductosApp'});
+       $('#fasefenologica-form').Edit({Type:'GET',Data:{'_token':'<?php echo csrf_token();?>'},ModuleName:'fasefenologica',ModuleItemName:'producto',NgAppName:'ngFaseFenosApp'});
+       $('#fasefenologica-form').Submit({Type:'POST',Data:{'_token':'<?php echo csrf_token();?>'},ModuleName:'producto',ModuleItemName:'producto',NgAppName:'ngFaseFenosApp'});
   });
 </script>
 @stop
@@ -20,7 +20,7 @@
                         <div class="title_left">
                             <h3>
                     Parametrización de :
-                                <small>Lista de Productos </small>
+                                <small>Lista de Fase fenológica </small>
                             </h3>
                         </div>
 
@@ -40,7 +40,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Gestión de Productos </h2>
+                                    <h2>Gestión de FaseFenos </h2>
                                     <button  class="btn btn-primary form-modal-button" data-toggle="modal" data-target=".form-modal"   >Agregar Nuevo </button>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a href="#"><i class="fa fa-chevron-up"></i></a>
@@ -56,12 +56,14 @@
                                 </div>
                               @endif
                                 <div class="x_content">
-                                <table class="table table-striped responsive-utilities jambo_table dataTable" id="tipodeproducto-table">
+                                <table class="table table-striped responsive-utilities jambo_table dataTable" id="fasefenologica-table">
                                     <thead>
                                         <tr>
                                          <th>Id</th>
                                          <th>Descripción</th>
                                          <th>Está Activo</th>
+                                         <th>Fecha Inicio</th>
+                                         <th>Fecha Fin</th>
                                           <th>Acción</th>
                                         </tr>
                                     </thead>
@@ -75,24 +77,35 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myLargeModalLabel">Productos
+        <h4 class="modal-title" id="myLargeModalLabel">Fase fenológica
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
         </h4>
       </div>
       <div class="modal-body">
-       <form  ng-app="ngProductosApp" ng-controller="ngtipodeproductoController" id="tipodeproducto-form" class="form-horizontal form-label-left" method="post" action='{!! route("tipodeproductocreateorupdate") !!}' autocomplete="off">
+       <form  ng-app="ngFaseFenosApp" ng-controller="ngfasefenologicaController" id="fasefenologica-form" class="form-horizontal form-label-left" method="post" action='{!! route("fasefenologicacreateorupdate") !!}' autocomplete="off">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Descripcion : <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input ng-model='tipodeproducto.descripcion' value="<% producto.descripcion %>" id="descripcion"  type="text" class="form-control" name="descripcion" placeholder="Ingrese una descripción del Producto" required="" />
+                              <input ng-model='fasefenologica.descripcion' value="<% producto.descripcion %>" id="descripcion"  type="text" class="form-control" name="descripcion" placeholder="Ingrese una descripción del FaseFeno" required="" />
                              </div>
                         </div>
-
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Fecha Inicio : </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input ng-model='producto.fechainicio'  value="<% producto.fechainicio %>" id="fechainicio"  type="date"  name='fechainicio'  ><ul class="parsley-errors-list" ></ul>
+                         </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Fecha Fin : </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input ng-model='producto.fechafin'  value="<% producto.fechafin %>" id="fechafin"  type="date"  name='fechafin'  ><ul class="parsley-errors-list" ></ul>
+                         </div>
+                        </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Está Activo : </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -104,7 +117,7 @@
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button type="reset"  class="btn btn-primary cancel" method="get" action='{!! route("gettipodeproducto") !!}' >Cancelar</button>
+                                <button type="reset"  class="btn btn-primary cancel" method="get" action='{!! route("getfasefenologica") !!}' >Cancelar</button>
                                 <button type="submit" class="btn btn-success">Guardar</button>
                             </div>
                         </div>
@@ -120,14 +133,16 @@
     <script type="text/javascript">
     var ListTable;
     $(document).ready(function () {
-        ListTable = $('#tipodeproducto-table').DataTable({
+        ListTable = $('#fasefenologica-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{!! route("gettipodeproducto") !!}',
+        ajax: '{!! route("getfasefenologica") !!}',
         columns: [
             {data: 'id', name: 'id'},
             {data: 'descripcion', name: 'descripcion'},
             {data: 'estaactivo', name: 'estaactivo'},
+              {data: 'fechainicio', name: 'fechafin'},
+                {data: 'fechafin', name: 'estaactivo'},
             {data: 'action', name: 'action',searchable:false}
         ],
         order: [[0, 'asc']]
