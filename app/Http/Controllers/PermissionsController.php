@@ -30,16 +30,15 @@ Class PermissionsController extends Controller
 
     Public function CreatePermission()
     {
-        
+
     }
 
     public function GetPermissions()
     {
         $permissions = Permission::orderBy('id', 'asc');
         return Datatables::of($permissions)->addColumn('action', function ($permissions) {
-                $column = '<a href="javascript:void(0)" data-url="' . route('permissionsedit', $permissions->id) . '"  class="edit btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-                $column .= '<a href="javascript:void(0)" data-url="' . route('permissionsdelete', $permissions->id) . '" class="delete btn btn-xs btn-primary"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
-                return $column;
+                $column = '<a href="javascript:void(0)" data-url="' . route('permissionsedit', $permissions->id) . '"  class="edit btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Editar</a>';
+                              return $column;
             })->make(true);
     }
 

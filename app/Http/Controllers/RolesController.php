@@ -61,8 +61,8 @@ Class RolesController extends Controller
     {
         $Roles = Role::all();
         return Datatables::of($Roles)->addColumn('actions', function ($Roles) {
-                $column = '<a href="javascript:void(0)"  data-url="' . route('rolesedit', $Roles->id) . '" class="edit btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-                $column .= '<a href="javascript:void(0)" data-url="' . route('rolesdelete', $Roles->id) . '" class="delete btn btn-xs btn-primary"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+                $column = '<a href="javascript:void(0)"  data-url="' . route('rolesedit', $Roles->id) . '" class="edit btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Editar</a>';
+
                 return $column;
             })->make(true);
     }
@@ -103,7 +103,7 @@ Class RolesController extends Controller
                 $Role->display_name = $All_input['display_name'];
                 $Role->description = $All_input['description'];
                 $Role->save();
-            //Role::insert(array('name'=>$All_input['name'],'display_name'=>$All_input['display_name'],'description'=>$All_input['description']));    
+            //Role::insert(array('name'=>$All_input['name'],'display_name'=>$All_input['display_name'],'description'=>$All_input['description']));
             endif;
             if (isset($All_input['permissions']) && count($All_input['permissions']) > 0):
                 $Role->perms()->sync($All_input['permissions']);

@@ -86,7 +86,7 @@ Route::group(['middleware' => ['web', 'auth','permission:correlacionmaestros','X
   //Manage Permissions
   require(app_path() . '/Http/Routes/correlacionmaestro.php');
 });
-Route::group(['middleware' => ['web', 'auth','permission:correlaciondetalle','XSS']], function () {
+Route::group(['middleware' => ['web', 'auth','permission:correlaciondetalles','XSS']], function () {
   //Manage Permissions
   require(app_path() . '/Http/Routes/correlaciondetalle.php');
 });

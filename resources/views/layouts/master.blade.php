@@ -44,12 +44,14 @@
                     <div class="left_col scroll-view">
                         <div class="clearfix"></div>
                         <!-- menu prile quick info -->
+
                         <div class="profile">
                             <div class="profile_pic">
                                 <img src="<?php echo url('photos' . '/' . Auth::user()->image) ?>" alt="..." class="img-circle profile_img">
                             </div>
                             <div class="profile_info">
-                                <span>Bienvenido,al CICOHALERT,</span>
+                                <span>Bienvenido,al CicohAlert,</span>
+                                  <td>   <img src ="{{ asset('app/media/img//logos/logo-1.png')}}" width="20%" alt ="logo"></td>
                                 <h2><?php echo session('name'); ?></h2>
                             </div>
                         </div>
@@ -146,8 +148,8 @@
                                              <?php if (in_array('correlacionmaestros', $user_permissions_names)): ?>
                                                      <li><a href="<?php echo Route('correlacionmaestros'); ?>">Correlación</a></li>
                                               <?php endif; ?>
-                                              <?php if (in_array('correlaciondetalle', $user_permissions_names)): ?>
-                                                      <li><a href="<?php echo Route('correlaciondetalle'); ?>">Correlacion-Detalle</a></li>
+                                              <?php if (in_array('correlaciondetalles', $user_permissions_names)): ?>
+                                                      <li><a href="<?php echo Route('correlaciondetalles'); ?>">Correlacion-Detalle</a></li>
                                                <?php endif; ?>
                                                <?php if (in_array('alertasadiconales', $user_permissions_names)): ?>
                                                        <li><a href="<?php echo Route('alertasadiconales'); ?>">Alertas adicinales</a></li>
@@ -178,21 +180,7 @@
                         </div>
                         <!-- /sidebar menu -->
 
-                        <!-- /menu footer buttons -->
-                        <div class="sidebar-footer hidden-small">
-                            <a data-toggle="tooltip" data-placement="top" title="Settings">
-                                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                            </a>
-                            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-                            </a>
-                            <a data-toggle="tooltip" data-placement="top" title="Lock">
-                                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-                            </a>
-                            <a data-toggle="tooltip" data-placement="top" title="Logout">
-                                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                            </a>
-                        </div>
+
                         <!-- /menu footer buttons -->
                     </div>
                 </div>
@@ -253,7 +241,23 @@
                     This is the master content.
                     @show
                 </div>
+                <div class="">
+                  <table align="center" >
+                  <tr >
+                      <td align="center"><img src ="{{ asset('app/media/img//logos/cicoh.png')}}"  width="50%" alt ="logo"></td>
+                    <td>    <div class="">
+                              <table align="center">
+                              <img src ="{{ asset('app/media/img//logos/logo-1.png')}}" alt ="logo">
+                             <h1>CicohAlert</h1>
+                               </table>
+                       </div>
+                     </td>
+                    <td align="center"><img src ="{{ asset('app/media/img//logos/usaid.png')}}"  width="50%" alt ="logo"></td>
+                  </tr>
+                  </table>
+                 <h5>CICOH ALERT se hace posible gracias al apoyo del pueblo estadounidense a través de la Agencia de los Estados Unidos para el Desarrollo Internacional (USAID). El contenido de este sistema es responsabilidad exclusiva de DAI y no refleja necesariamente los puntos de vista de la Agencia de Estados Unidos para el Desarrollo Internacional o del Gobierno de los Estados Unidos.</h5>
 
+                  </div>
                 <!-- /page content -->
             </div>
 
