@@ -37,7 +37,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/InstallstepTow', array('uses' => 'InstallController@InstallStepTow','as'=>'InstallStepTow'));
     Route::post('/InstallMigration', array('uses' => 'InstallController@InstallMigration','as'=>'InstallMigration'));
     Route::get('/RegisterUserToAdmin', array('uses' => 'UsersController@RegisterUserToAdmin'));
-    Route::get('/estacionesalertas', array('uses' => 'EstacionesAlertasControler@index'));
     Route::get('/consultarApiCicoh', array('uses' => 'MasterControler@index'));
 
 });
@@ -48,7 +47,7 @@ Route::group(['middleware' => ['web', 'auth','permission:users','XSS']], functio
     require(app_path() . '/Http/Routes/users.php');
 });
 Route::group(['middleware' => ['web', 'auth','permission:filemanager']], function () {
-    Route::get('/filemanage', array('uses' => 'AdminController@FileManage'));
+    Route::get('/filemanage', array('uses' => 'DashBoardController@FileManage'));
 });
 Route::group(['middleware' => ['web', 'auth','permission:roles','XSS']], function () {
     //Mange Roles
@@ -99,6 +98,8 @@ Route::group(['middleware' => ['web', 'auth','permission:alertasadiconales','XSS
 
 
 
+
+
 Route::group(['middleware' => ['web', 'auth','permission:productofaseelementorangos','XSS']], function () {
   //Manage Permissions
   require(app_path() . '/Http/Routes/productofaseelementorangos.php');
@@ -112,8 +113,9 @@ Route::group(['middleware' => ['web', 'auth','permission:modulebuilder_modules|m
 
 
 Route::group(['middleware' => ['web', 'auth']], function () {
-    Route::get('/', ['uses' => 'AdminController@DashBoard']);
-    Route::get('/logout', array('uses' => 'UsersController@Logout', 'as' => 'logout'));
+    Route::get('/', ['uses' => 'DashBoardController@DashBoard']);
+  
+      Route::get('/logout', array('uses' => 'UsersController@Logout', 'as' => 'logout'));
     //Credit Controller
     Route::controllers(['auth' => 'Auth\AuthController', 'password' => 'Auth\PasswordController']);
     //Crud Routes

@@ -28,7 +28,7 @@
 <!--    <script>
         NProgress.start();
     </script>-->
-    
+
     <!--[if lt IE 9]>
         <script src="../assets/js/ie8-responsive-file-warning.js"></script>
         <![endif]-->
@@ -42,7 +42,7 @@
 </head>
 
 <body style="background:#F7F7F7;">
-    
+
     <div class="">
         <a class="hiddenanchor" id="toregister"></a>
         <a class="hiddenanchor" id="tologin"></a>
@@ -57,7 +57,7 @@
                             <input type="text" type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="E-mail" required="" />
                         </div>
                         <div>
-                            <input type="password" name="password" class="form-control" placeholder="Password" required="" />
+                            <input type="password" name="password" class="form-control" placeholder="Ingrese Contraseña" required="" />
                         </div>
                         <div>
                             <button type="submit" class="btn btn-default submit">Submit</button>
@@ -91,7 +91,7 @@
                         </div>
                         <div>
                             <input type="password" class="form-control" name="password" placeholder="Password" required="" />
-                            
+
                         </div>
                         <div>
                             <button type="submit">Register</button>
@@ -105,9 +105,9 @@
                             <div class="clearfix"></div>
                             <br />
                             <div>
-                                <h1><i class="fa fa-paw" style="font-size: 26px;"></i> Gentelella Alela!</h1>
+                                <h1><i class="fa fa-paw" style="font-size: 26px;"></i> CicohAlert!</h1>
 
-                                <p>©2015 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                                <p>©2015 All Rights Reserved. GEMA! </p>
                             </div>
                         </div>
                     </form>

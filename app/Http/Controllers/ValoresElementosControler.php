@@ -9,7 +9,7 @@ class ValoresElementosControler extends Controller
   public  function PromediosPorSectoryTiempo()
   {
 
-    $promedios_por_regiontiempo =  DB::select('select * from public."listar_promedios_por_regiontiempo_out"('.session('region_id').',5)');
+    $promedios_por_regiontiempo =  DB::select('select * from public."listar_promedios_por_regiontiempo_out"('.session('region_id').',5)  ');
       return $promedios_por_regiontiempo;
   }
 

@@ -1,20 +1,14 @@
 @extends('layouts.master')
-@section('head')
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo asset('assets/css/datatables/tools/css/dataTables.tableTools.css'); ?>" />
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo asset('assets/css/custom.css'); ?>" />
-    <script type="text/javascript" src="<?php echo asset('assets/js/ng-form-plugin.js'); ?>"></script>
-    <script src="{{asset('assets/js/angular.js')}}" ></script>
-    <script stype="text/javascript">
-</script>
-@stop
 @section('content')
                 <!-- top tiles -->
                 <div class="row tile_count">
                     <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
                         <div class="left"></div>
                         <div class="right">
-                            <span class="count_top"> <i class="fa fa-square"> Región ó sector: </i>                                                 <br />
+                            <span class="count_top"> <i class="fa fa-square"> Región ó sector: </i>
+                                                 <br />
                               <span class="count_bottom"><i class="blue"> </i> <h3><?php echo $sectordeusuario ; ?></h3>  </span>
+
                         </div>
                     </div>
                     <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
@@ -64,37 +58,37 @@
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                      <div class="x_panel">
-                          <div class="x_title">
-                            <h3>Alertas del día <small>(en base a los valores promedios de los últimos 5 días en su sector se generaron las siguientes alertas.) </small></h3>
-                                <div class="clearfix"></div>
-                                <div class="panel-body">
-                                      <table class="table table-bordered" id='alertas'>
-                                                <thead>
-
-
-                                                  <th>Detalle :</th>
-
-                                                                    </thead>
-                                                <tbody>
-                                                @foreach($alertaderegion as $alert)
-                                                    <tr>
-                                                        <td>
-                                                          {{$alert->alerta}}
-                                                         </td>
-                                                     </tr>
-                                                @endforeach
-                                                </tbody>
-                                            </table>
-                                </div>
-
-
-                          </div>
-                        <div class="x_content">
-
-                          </div>
-                      </div>
                         <div class="dashboard_graph">
+
+                            <div class="row x_title">
+                                <div class="col-md-12">
+                                    <h3>Alertas del día <small>(en base a los valores promedios de los últimos 5 días en su sector se generaron las siguientes alertas.) </small></h3>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                  <table class="table table-bordered" id='alertas'>
+                                            <thead>
+
+
+                                              <th>Alertas Generadas en el sector.</th>
+
+                                                                </thead>
+                                            <tbody>
+
+                                                <tr>
+
+
+                                                    <td>
+                                                     </td>
+
+
+
+                                                 </tr>
+
+
+                                            </tbody>
+                                        </table>
+                            </div>
                             <div class="row x_title">
                                 <div class="col-md-12">
                                     <h3>Gráfica de Temperatura y Humedad Relativa (Ultimos 5 Días) <small>en base a los valores promedios de su sector </small></h3>
@@ -234,10 +228,4 @@ function gd(year, month, day) {
     return new Date(year, month - 1, day).getTime();
 }
 </script>
-@stop
-
-
-@section('footer')
-
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 @stop

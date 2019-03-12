@@ -5,7 +5,7 @@ use App\User;
 Use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
 
-Class AdminController extends Controller
+Class DashBoardController extends Controller
 {
 
     function __construct()
@@ -41,8 +41,12 @@ Class AdminController extends Controller
           }
 
        }
+    //   alertas del sector o region de usuario  generadas en el dia $mesActual
+       $alertaderegion = app('App\Http\Controllers\RegionesAlertasControler')->GetalAlertaDeRegion();
 
-     return view('dashboard',array('UsersCount'=>$UsersCount,'UsersCountLasWeekPercentage'=>$UsersCountLasWeekPercentage,'humedad_relativa'=>$humedad_relativa,'temperatura_ambiente'=>$temperatura_ambiente,'sectordeusuario'=>$sectorDeUsuario , 'cantidaddeestaciones' =>$CantidadDeEstaciones ,'valorpromediotemperatura' =>$ValorPromedioTemperatura,'valorpromediohumedadrelativa' => $ValorPromedioHumedadRelativa, 'valorpromediovelocidaddelviento' => $ValorPromedioVelocidadDelViento    ));
+     return view('dashboard',array('UsersCount'=>$UsersCount,'UsersCountLasWeekPercentage'=>$UsersCountLasWeekPercentage,'humedad_relativa'=>$humedad_relativa,
+     'temperatura_ambiente'=>$temperatura_ambiente,'sectordeusuario'=>$sectorDeUsuario , 'cantidaddeestaciones' =>$CantidadDeEstaciones ,'valorpromediotemperatura' =>$ValorPromedioTemperatura,'valorpromediohumedadrelativa' => $ValorPromedioHumedadRelativa,
+     'valorpromediovelocidaddelviento' => $ValorPromedioVelocidadDelViento ),compact('alertaderegion'));
 
     }
 

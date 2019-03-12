@@ -9,7 +9,7 @@
         <title> CicohAlert </title>
         <!-- Bootstrap core CSS -->
         <link href="<?php echo asset('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
-        <link href="<?php echo asset('assets/fonts/css/font-awesome.min.css') ?>" rel="stylesheet">
+        <link href="<?php echo asset('assets/fonts/css/font-awesome.min.css') ?>" rel="c">
         <link href="<?php echo asset('assets/css/animate.min.css'); ?>" rel="stylesheet">
         <!-- Custom styling plus plugins -->
         <link href="<?php echo asset('assets/css/custom.css'); ?>" rel="stylesheet">

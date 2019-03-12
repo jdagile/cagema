@@ -63,7 +63,7 @@ public function humedad_relativa()
 }
 
 public function recuperar_elemento_por_dias($elemento, $dias) {
-	return DB::select('select * from public."listar_elemento_por_dias"('. session('region_id')  .','  .$elemento.','.$dias.')');
+	return DB::select('select * from public."listar_elemento_por_dias"('. session('region_id')  .','  .$elemento.','.$dias.')' );
 }
 
 public function listar_promedios_por_region_out($sector_id)

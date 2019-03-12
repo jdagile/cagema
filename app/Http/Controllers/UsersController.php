@@ -27,7 +27,8 @@ Class UsersController extends Controller
 
     public function Login()
     {
-        return view('auth.login');
+          $Regions=Region::where('estaactivo', true)->get();
+        return view('auth.login' ,array('regions' => $Regions->toJson() ));
     }
 
     public function Login1()
@@ -56,6 +57,8 @@ Class UsersController extends Controller
 
     public function register()
     {
+      $Roles = Role::all();
+      $Regions= Region::all();
         return View('auth/register');
     }
 

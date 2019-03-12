@@ -89,6 +89,7 @@ class CorrelacionMaestroControler extends Controller
        */
        public function CreateOrUpdate(Request $request)
      {
+         $usersController= new UsersController();
        $estaactivo = $request->get('estaactivo', 0); // second parameter is default value
        $All_input = $request->input();
        $CorrelacionMaestro = null;
@@ -98,12 +99,13 @@ class CorrelacionMaestroControler extends Controller
                                                                                      ->exists();
                  if($ExisteCorrelacionMaestros==true  &&  $All_input['id'] != '')
                   {
-                      $usersController= new UsersController();
+
                       $CorrelacionMaestro = CorrelacionMaestro::where('id', $All_input['id'])->first();
                       $CorrelacionMaestro->tipodeproducto_id = $All_input['tipodeproductos'];
                       $CorrelacionMaestro->fasefenologica_id = $All_input['fasefenologicas'];
                       $CorrelacionMaestro->alertasgenerales_id = $All_input['alertasgenerales'];
                       $CorrelacionMaestro->descripcion = $All_input['descripcion'];
+                      $CorrelacionMaestro->id_usuariomodifico=$usersController->UsuarioPorEmail(session('email') );
                       $CorrelacionMaestro->estaactivo = $estaactivo;
                       $CorrelacionMaestro->save();
 
@@ -128,6 +130,7 @@ class CorrelacionMaestroControler extends Controller
                                          $CorrelacionMaestro->alertasgenerales_id = $All_input['alertasgenerales'];
                                          $CorrelacionMaestro->descripcion = $All_input['descripcion'];
                                          $CorrelacionMaestro->estaactivo = $estaactivo;
+                                        $CorrelacionMaestro->id_usuariocreo= $usersController->UsuarioPorEmail(session('email') );
                                        $CorrelacionMaestro->save();
                                        Session::flash('flash_message', 'Se Guardo Exitosamente!');
                                        Session::flash('flash_type', 'alert-success');

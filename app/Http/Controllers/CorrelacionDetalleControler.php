@@ -88,6 +88,7 @@ class correlacionDetalleControler extends Controller
        */
        public function CreateOrUpdate(Request $request)
      {
+          $usersController= new UsersController();
       $estaactivo = $request->get('estaactivo', 0); // second parameter is default value
        $All_input = $request->input();
        $correlacionDetalle = null;
@@ -99,10 +100,8 @@ class correlacionDetalleControler extends Controller
                  if($Existecorrelaciondetalles==true  &&  $All_input['id'] != '')
                   {
 
-                    $usersController= new UsersController();
-
-                      $correlacionDetalle = CorrelacionDetalle::where('id', $All_input['id'])->first();
-                        $correlacionDetalle->correlacionmaestro_id = $All_input['correlacionmaestros'];
+                    $correlacionDetalle = CorrelacionDetalle::where('id', $All_input['id'])->first();
+                  $correlacionDetalle->correlacionmaestro_id = $All_input['correlacionmaestros'];
                       $correlacionDetalle->elementos_id = $All_input['elementos'];
                       $correlacionDetalle->tipodealerta_id = $All_input['tipodealertas'];
                       $correlacionDetalle->estaactivo = $estaactivo;
@@ -124,7 +123,7 @@ class correlacionDetalleControler extends Controller
 
                                     if($Existecorrelaciondetalles==false)
                                      {
-                                         $usersController= new UsersController();
+
                                        $correlacionDetalle = new CorrelacionDetalle();
                                        $correlacionDetalle->correlacionmaestro_id = $All_input['correlacionmaestros'];
                                        $correlacionDetalle->elementos_id = $All_input['elementos'];

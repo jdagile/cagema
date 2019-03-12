@@ -1,6 +1,6 @@
 <?php
 //Users Controller
-Route::get('/', ['uses' => 'AdminController@DashBoard']);
+Route::get('/', ['uses' => 'DashBoardController@DashBoard']);
 Route::get('/logout', array('uses' => 'UsersController@Logout', 'as' => 'logout'));
 Route::get('/users', array('uses' => 'UsersController@index', 'as' => 'users'));
 Route::get('/users/list', array('uses' => 'UsersController@All', 'as' => 'userslist'));

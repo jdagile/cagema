@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" type="text/css" media="screen" href="<?php echo asset('assets/css/datatables/tools/css/dataTables.tableTools.css'); ?>" />
+<link rel="stylesheet" type="text/css" media="screen" href="<?php echo asset('assets/css/custom.css'); ?>" />
+<script type="text/javascript" src="<?php echo asset('assets/js/ng-form-plugin.js'); ?>"></script>
+<script src="{{asset('assets/js/angular.js')}}" ></script>
+<script stype="text/javascript">
+    var ngLoginApp = angular.module('ngLoginApp', [], function($interpolateProvider)
+        {$interpolateProvider.startSymbol('<%');$interpolateProvider.endSymbol('%>');});
+        ngLoginApp.controller('ngLoginController', function($scope) {
+        $scope.login=[];
+        $scope.regions={!! $regions !!};
+               $('#login-form').Submit({Type:'POST',Data:{'_token':'<?php echo csrf_token();?>'},ModuleName:'logins',ModuleItemName:'login',NgAppName:'ngLoginApp'});
 
+    });
+</script>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -25,7 +38,7 @@
         <div id="wrapper">
             <div id="login" class="animate form">
                 <section class="login_content">
-                    <form method="POST" action="{!! url('/login') !!}" data-parsley-validate >
+                    <form  method="POST" action="{!! url('/login') !!}" data-parsley-validate >
                          {!! csrf_field() !!}
                          <img src ="{{ asset('app/media/img//logos/logo-1.png')}}" alt ="logo">
                         <h1 style="color : white;">CicohAlert</h1>
@@ -40,7 +53,14 @@
 
                         </div>
                         <div class="clearfix"></div>
+                                              <div class="separator">
 
+                                                  <p style="color: white" class="change_link"> quieres registrarte ?
+                                                      <a style="color: white" href="#toregister" class="to_register"> Crea una Cuenta ! </a>
+                                                  </p>
+                                                  <div class="clearfix"></div>
+                                                  <br />
+                                              </div>
                     </form>
                     <div class="">
                       <table align="center" >
@@ -62,27 +82,35 @@
             </div>
             <div id="register" class="animate form">
                 <section class="login_content">
-                    <form method="POST" action="{!! url('/register') !!}" data-parsley-validate>
+                    <form id="login-form" ng-app="ngLoginApp" ng-controller="ngLoginController" method="POST" action="{!! url('/register') !!}" data-parsley-validate>
                         {!! csrf_field() !!}
-                        <h1>Crear Cuenta</h1>
+                        <img src ="{{ asset('app/media/img//logos/logo-1.png')}}" alt ="logo">
+                       <h1 style="color : white;">CicohAlert</h1>
+                        <h3 style="color: white">Crear Cuenta</h3>
                         <div>
-                            <input type="text" class="form-control" name="username" placeholder="Username" required="" />
+                               <select name="regions" id="regions" class="form-control">
+                                      <option ng-selected="login.regions_id==region.id" ng-repeat="region in regions" value="<% region.id %>" ><% region.descripcion %></option>
+                                </select>
+                        </div>
+                        <br>
+                        <div>
+                            <input type="text" class="form-control" name="username" placeholder="Ingrese su Nombre y apellido." required="" />
                         </div>
                         <div>
-                            <input type="email" class="form-control" name="email" placeholder="Email" required="" />
+                            <input type="email" class="form-control" name="email" placeholder="Ingrese su correo." required="" />
                         </div>
                         <div>
-                            <input type="password" class="form-control" name="password" placeholder="Password" required="" />
+                            <input type="password" class="form-control" name="password" placeholder="Ingrese su Contraseña." required="" />
 
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-default submit">Submit</button>
+                            <button type="submit" class="btn btn-default submit">Guardar</button>
                         </div>
                         <div class="clearfix"></div>
                         <div class="separator">
 
-                            <p class="change_link">Already a member ?
-                                <a href="#tologin" class="to_register"> Log in </a>
+                            <p style="color: white" class="change_link">Estas registrado ?
+                                <a style="color: white" href="#tologin" class="to_register"> Inicio de sesión </a>
                             </p>
                             <div class="clearfix"></div>
                         </div>
