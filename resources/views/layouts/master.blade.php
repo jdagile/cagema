@@ -150,13 +150,13 @@
                                               <?php endif; ?>
                                               <?php if (in_array('correlaciondetalles', $user_permissions_names)): ?>
                                                       <li><a href="<?php echo Route('correlaciondetalles'); ?>">Correlacion-Detalle</a></li>
-                                               <?php endif; ?>
-                                               <?php if (in_array('alertasadiconales', $user_permissions_names)): ?>
-                                                       <li><a href="<?php echo Route('alertasadiconales'); ?>">Alertas adicinales</a></li>
-                                                <?php endif; ?>
+                                               <?php endif; ?>                                          
                                                 <?php if (in_array('valoresacumuladosporfasefenologicas', $user_permissions_names)): ?>
                                                     <li><a href="<?php echo Route('valoresacumuladosporfasefenologicas'); ?>">Valores Acumulados</a></li>
                                                 <?php endif; ?>
+                                                <?php if (in_array('alertasgenerales', $user_permissions_names)): ?>
+                                                        <li><a href="<?php echo Route('alertasgenerales'); ?>">Alertas Generales</a></li>
+                                                 <?php endif; ?>
 
                                         </ul>
                                     </li>

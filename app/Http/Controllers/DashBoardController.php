@@ -25,6 +25,9 @@ Class DashBoardController extends Controller
        $CantidadDeEstaciones = app('App\Http\Controllers\RegionesEstacionesControler')->CantidadDeEstaciones(session('region_id'));
         //valore acumulados de la region de los ultimos 5 $dias
        $PromediosDeLaRegion = app('App\Http\Controllers\ValoresElementosControler')->PromediosPorSectoryTiempo();
+  $ValorPromedioTemperatura  =0;
+  $ValorPromedioHumedadRelativa =0;
+    $ValorPromedioVelocidadDelViento =0;
 
        foreach($PromediosDeLaRegion as $pr){
           if($pr->out_id_elemento==10)

@@ -18,13 +18,13 @@ class RegionesAlertasControler extends Controller
       $fechaActual =  date('Y-m-d');
       $dia =date("d",strtotime($fechaActual));
       $mes =date("m",strtotime($fechaActual));
-      $anio =date("yy",strtotime($fechaActual));
+      $anio =date("Y",strtotime($fechaActual));
 
       $consulta=  DB::table('regionesalertas')->join('alertasgenerales', 'regionesalertas.alertasgenerales_id', '=', 'alertasgenerales.id')
-     ->where('regionesalertas.dia', 8)
-     ->where('regionesalertas.mes', 3)
-     ->where('regionesalertas.anio', 2019)
-     ->where('regionesalertas.region_id', 2  )
+     ->where('regionesalertas.dia', $dia)
+     ->where('regionesalertas.mes', $mes)
+     ->where('regionesalertas.anio', $anio)
+     ->where('regionesalertas.region_id',  session('region_id'))
      ->where('regionesalertas.estaactivo', true)
      ->select('alertasgenerales.descripcion as alerta'  )
     ->get();

@@ -90,14 +90,10 @@ Route::group(['middleware' => ['web', 'auth','permission:correlaciondetalles','X
   require(app_path() . '/Http/Routes/correlaciondetalle.php');
 });
 
-Route::group(['middleware' => ['web', 'auth','permission:alertasadiconales','XSS']], function () {
+Route::group(['middleware' => ['web', 'auth','permission:alertasgenerales','XSS']], function () {
   //Manage Permissions
-  require(app_path() . '/Http/Routes/alertasadiconales.php');
+  require(app_path() . '/Http/Routes/alertasgenerales.php');
 });
-
-
-
-
 
 
 Route::group(['middleware' => ['web', 'auth','permission:productofaseelementorangos','XSS']], function () {
@@ -114,7 +110,7 @@ Route::group(['middleware' => ['web', 'auth','permission:modulebuilder_modules|m
 
 Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/', ['uses' => 'DashBoardController@DashBoard']);
-  
+
       Route::get('/logout', array('uses' => 'UsersController@Logout', 'as' => 'logout'));
     //Credit Controller
     Route::controllers(['auth' => 'Auth\AuthController', 'password' => 'Auth\PasswordController']);
