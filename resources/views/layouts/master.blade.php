@@ -79,11 +79,11 @@
                                     </li>
                                     @empty
                                     @endforelse
-                                    <?php if (!empty(array_intersect(array('inicio'), $user_permissions_names))): ?>
-                                    <li><a><i class="fa fa-home"></i> <span class="fa fa-chevron-down"></span></a>
+                                    <?php if (!empty(array_intersect(array('pronostico'), $user_permissions_names))): ?>
+                                    <li><a><i class="fa fa-cloud">  </i> Clima <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" style="display: none">
-                                            <?php if (in_array('inicio', $user_permissions_names)): ?>
-                                                <li><a href="<?php echo Route('inicio'); ?>">Inicio</a></li>
+                                            <?php if (in_array('pronostico', $user_permissions_names)): ?>
+                                                <li><a href="<?php echo Route('pronostico'); ?>">Pronóstico</a></li>
                                             <?php endif; ?>
                                         </ul>
 
@@ -150,7 +150,7 @@
                                               <?php endif; ?>
                                               <?php if (in_array('correlaciondetalles', $user_permissions_names)): ?>
                                                       <li><a href="<?php echo Route('correlaciondetalles'); ?>">Correlacion-Detalle</a></li>
-                                               <?php endif; ?>                                          
+                                               <?php endif; ?>
                                                 <?php if (in_array('valoresacumuladosporfasefenologicas', $user_permissions_names)): ?>
                                                     <li><a href="<?php echo Route('valoresacumuladosporfasefenologicas'); ?>">Valores Acumulados</a></li>
                                                 <?php endif; ?>

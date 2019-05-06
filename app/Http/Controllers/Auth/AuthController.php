@@ -69,4 +69,27 @@ use AuthenticatesAndRegistersUsers,
                 'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function RegisterPost(Request $request)
+    {
+
+        $user = new User();
+        $user->name = $request->input('username');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->image = 'img.jpg';
+        $user->remember_token   = str_random(60);
+       $user->save();
+        $user->roles()->sync(array(3));
+        $url = route('confirmation',['token'=> $user->remember_token]);
+
+       Mail::send('emails/registration',compact('user','url'),function($m) use($user) {
+         $m->to($user->email,$user->name )->subject('Activa tu cuenta desde tu correo electrónico ');
+       });
+
+       Session::flash('flash_message', 'Activa tu cuenta desde tu correo electrónico!');
+       Session::flash('flash_type', 'alert-success');
+       return redirect('/login');
+
+    }
 }

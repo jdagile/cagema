@@ -20,7 +20,7 @@
                     <div class="page-title">
                         <div class="title_left">
                             <h3>
-                                Permissions
+                                Permisos
                                 <small>Lista de Permisos</small>
                             </h3>
                         </div>
@@ -76,7 +76,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myLargeModalLabel">Module Name
+        <h4 class="modal-title" id="myLargeModalLabel">Permiso
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
@@ -86,7 +86,7 @@
        <form  ng-app="ngPermissionsApp" ng-controller="ngPermissionsController" id="permissions-form" class="form-horizontal form-label-left" method="post" action='{!! route("permissionscreateorupdate") !!}' autocomplete="off">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre Corto <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input ng-model='permission.name' type="text" id="name" name='name' required="required" class="form-control col-md-7 col-xs-12" >
@@ -94,7 +94,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Display Name<span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre Desplegable<span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input ng-model='permission.display_name' type="text" id="display_name" name='display_name' required="required" class="form-control col-md-7 col-xs-12" >
@@ -102,7 +102,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Description <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Descriocion <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input ng-model='permission.description' type="text" id="description" name='description' required="required" class="form-control col-md-7 col-xs-12" >
@@ -113,8 +113,8 @@
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button type="reset" class="btn btn-primary cancel">Cancel</button>
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="reset" class="btn btn-primary cancel">Cancelar</button>
+                                <button type="submit" class="btn btn-success">Guardar</button>
                             </div>
                         </div>
 

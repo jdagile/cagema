@@ -6,6 +6,7 @@ use App\UnidadDeMedida;
 use App\Estaciones;
 use App\ValoresElementos;
 use Carbon\Carbon;
+use DB;
 class MasterControler extends Controller
 {
 /*
@@ -25,35 +26,49 @@ class MasterControler extends Controller
     $unidadesControler =null;
     $unidadDeMedidaControler       = new UnidadDeMedidaControler();
     $unidadesDeMedidas   =  $unidadDeMedidaControler->ObtenerTodos();
-echo "----------------UnidadesDeMedidas--------------------".'<br>';
-    foreach ($unidadesDeMedidas as $unidad) {
-            $valor=  $unidad['simbolo'];
-            echo ' ---------       '.$valor.'<br>';
-    }
 //Elementos.
 $elementosControlador= null;
 $elementosControlador = new ElementosControler();
 $elementos =$elementosControlador->ObtenerTodos();
-echo "----------------Elementos--------------------".'<br>';
-foreach ($elementos as $elemento) {
-        $valor=  $elemento['simbolo'];
-        echo ' ---------       '.$valor.'<br>';
-}
-//estaciones.
-$estaciones=null;
-$estacionesControler= new EstacionesControler();
-$estaciones= $estacionesControler->ObtenerTodos();
-echo "----------------Estaciones--------------------".'<br>';
-foreach ($estaciones as $estacion) {
-        $valor=  $estacion['descripcion'];
-        echo $estacion['id']." ".$estacion['descripcion'].'<br>';
-}
+
+
 
     //llamar el metodo DatosDeUltimaHora es el que cosumenel API en el controlador ConsumirApiDeCICOHControler
      $datosDeUltimaHora =null;
      $controlador =null;
      $controlador = new ConsumirApiDeCICOHControler();
      $items = $controlador->DatosDeUltimaHora();
+     $datosDeEstaciones = $controlador->DatosDeEstaciones();
+     echo "----------------Estaciones--------------------".'<br>';
+     foreach($datosDeEstaciones ['resource']  as $datosdeestacion ) {
+         $fechaActual =Carbon::now()->subHours(6)->toDateTimeString();
+
+                     $estacion = new Estaciones();
+
+                      $estacion->id=$datosdeestacion['id'];
+                      $estacion->descripcion = $datosdeestacion['name'];
+                      $estacion->latitud =$datosdeestacion['latitude'];
+                      $estacion->longitud =$datosdeestacion['longitude'];
+                      $estacion->elevacion =$datosdeestacion['elevation'];
+                      $estacion->departamentos_id =$datosdeestacion['region_id'];
+                      $estacion->municipios_id =$datosdeestacion['municipality_id'];
+                      $estacion->cuencas_id =$datosdeestacion['basin_id'];
+                      $estacion->perfil_id =$datosdeestacion['profile_id'];
+                      $estacion->id_usuariocreo = 1;
+                      $estacion->created_at  = $fechaActual;
+                      $estacion->updated_at  = $fechaActual;
+                      $estacion->id_usuariomodifico = 1;
+                      $estacionesControler =null;
+                      $estacionesControler = new EstacionesControler();
+                      $estacionesControler->store( $estacion );
+                     $estacion =null;
+                  
+
+
+}
+
+
+
      //Tipo de Produtos.
      $tipoDeProductoControler =null;
      $tipoDeProductoControler = new TipoDeProductoControler();
@@ -79,25 +94,7 @@ foreach ($estaciones as $estacion) {
                              $dia =date("d",strtotime($fechaDeEstacion));
                              $mes =date("m",strtotime($fechaDeEstacion));
                              $anio =date("y",strtotime($fechaDeEstacion));
-                             //Verificar el registro de la estacion.
-                             $exixteLaEstacion=false;
-                              $estacionesControler= new EstacionesControler();
-                              $exixteLaEstacion= $estacionesControler->VerificarExistencia($item['station_id'] );
-                             if($exixteLaEstacion == false)
-                             {
- echo "----------------hay estacion nueva-------------------".'<br>';
-                               $nuevaEsacion= new Estaciones();
-                               $nuevaEsacion->id=$item['station_id'];
-                               $nuevaEsacion->descripcion = $item['station_name'];
-                               $nuevaEsacion->latitud =$item['latitude'];
-                               $nuevaEsacion->longitud =$item['longitude'];
-                               $nuevaEsacion->elevacion =$item['elevation'];
-                               $nuevaEsacion->estaactivo = true;
-                               $nuevaEsacion->id_usuariocreo = 1;
-                               $nuevaEsacion->save();
-                               $exixteLaEstacion =true;
-     echo "----------------Se Creo una nueva estacion--------------------".'<br>';
-                             }
+
 
                              //Verificar el registro de unidades de UnidadDeMedida
                                 $existeUnidadDeMedida = $unidadDeMedidaControler->VerificarExistencia($item['symbol'] );
@@ -147,44 +144,15 @@ foreach ($estaciones as $estacion) {
                       $valoreselementos_id =  $valoresElementosControler->store($listaDeValoresElementos);
                           echo ' ---------se registro en valoresElementos       '.'<br>';
                       }
-                      //ObtenerParametrosDeProductoFaseElementoRango
-
-                      //Obener información de la tabla ProductoFaseElementoRango
-                      $productoFaseElementoRangosfiltro = array([]);
-                      $productoFaseElementoRangosfiltro = array_add($productoFaseElementoRangosfiltro, 'tipoproducto_id', $tipoProducto['id']);
-                      $productoFaseElementoRangosfiltro = array_add($productoFaseElementoRangosfiltro, 'fasefenologica_id', $fase['fasefenologica_id']);
-                      $controladorProductoFaseElementoRango =null;
-                      $controladorProductoFaseElementoRango =  new ProductoFaseElementoRangoControler();
-                      $productoFaseElementoRangos = $controladorProductoFaseElementoRango->ObtenerParametrosDeProductoFaseElementoRango($productoFaseElementoRangosfiltro);
-  echo ' ---------se consulto en $productoFaseElementoRangos       '.'<br>';
-
-                     foreach($productoFaseElementoRangos as $productoFaseElementoRango)
-                     {
-                   echo $valoreselementos_id;
-                      if($valoreselementos_id >0)//tiene que registrar nuevos valores elementos.
-                     {
-
-                     if(  ($item['element_id']== $productoFaseElementoRango['elementos_id'])  )
-                     {
 
 
 
-
-
-
-
-
-                     }
-                    }
-
-                   }
 
 }
    }//fin Fase fenologica.
 }//Fin de tipo de productos
 
 
-return view('prueba');
   }
 
 

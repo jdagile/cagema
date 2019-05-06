@@ -118,4 +118,26 @@
         </div>
     </div>
 </body>
+<script type="text/javascript">
+    var ListTable;
+    $(document).ready(function() {
+
+        ListTable = $('#users-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: '{!! route("userslist") !!}',
+            columns: [
+                {data: 'id', name: 'id'},
+                {data: 'name', name: 'name'},
+                {data: 'email', name: 'email'},
+                {data: 'created_at', name: 'created_at'},
+                {data: 'updated_at', name: 'updated_at'},
+                {data: 'actions', name: 'actions','searchable':false}
+            ],
+            order: [[1, 'asc']]
+        });
+    });
+
+</script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 </html>

@@ -12,7 +12,6 @@
         $scope.roles={!! $roles !!};
         $scope.regions={!! $regions !!};
         $('#users-form').Edit({Type:'GET',Data:{'_token':'<?php echo csrf_token();?>'},ModuleName:'users',ModuleItemName:'user',NgAppName:'ngUsersApp'});
-       $('#users-form').Delete({Type:'GET',Data:{'_token':'<?php echo csrf_token();?>'},ModuleName:'users',ModuleItemName:'user',NgAppName:'ngUsersApp'});
        $('#users-form').Submit({Type:'POST',Data:{'_token':'<?php echo csrf_token();?>'},ModuleName:'users',ModuleItemName:'user',NgAppName:'ngUsersApp'});
 
     });

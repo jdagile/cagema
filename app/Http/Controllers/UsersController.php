@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Mail;
 Use App\User;
 Use App\Role;
 Use App\Region;
@@ -64,16 +64,47 @@ Class UsersController extends Controller
 
     public function RegisterPost(Request $request)
     {
+
         $user = new User();
         $user->name = $request->input('username');
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
         $user->image = 'img.jpg';
-        $User->regions_id = $request['regions'];
-        $user->save();
-        $user->roles()->sync(array(2));
-        return redirect('/login');
+        $user->remember_token   = str_random(60);
+       $user->save();
+        $user->roles()->sync(array(3));
+        $url = route('confirmation',['token'=> $user->remember_token]);
+
+       Mail::send('emails/registration',compact('user','url'),function($m) use($user) {
+         $m->to($user->email,$user->name )->subject('Activa tu cuenta desde tu correo electrónico ');
+       });
+
+       //Session::flash('flash_message', 'Activa tu cuenta desde tu correo electrónico!');
+       //Session::flash('flash_type', 'alert-success');
+       return redirect('/login')->with('alert','Te enviamos un correo electrónico de confirmación!') ;
+
     }
+
+  protected function  getConfirmation($token)
+  {
+
+      try {
+           $user = User::where('remember_token',$token)->firstOrFail();
+           $user->remember_token =null;
+           $user->save();
+              return redirect('/login')->with('alert','El Correo se confirmo correctamente, puedes iniciar Sessión!') ;
+
+         }
+         catch (\Exception $e) {
+                                 return $e->getMessage();
+                                }
+
+  }
+
+
+
+
+
     public function RegisterUserToAdmin()
     {
         $Users=User::select('id')->get();

@@ -186,10 +186,17 @@
                                                 <span class="image">
                                                     <img src="<?php echo asset('assets/images/img.jpg'); ?>" alt="Profile Image" />
                                                 </span>
-                                                <span>
-                                                    <span>John Smith</span>
-                                                    <span class="time">3 mins ago</span>
+                                              <span class="message">
+                                                    Film festivals used to be do-or-die moments for movie makers. They were where...
                                                 </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                <span class="image">
+                                                    <img src="<?php echo asset('assets/images/img.jpg'); ?>" alt="Profile Image" />
+                                                </span>
+
                                                 <span class="message">
                                                     Film festivals used to be do-or-die moments for movie makers. They were where...
                                                 </span>
@@ -200,10 +207,7 @@
                                                 <span class="image">
                                                     <img src="<?php echo asset('assets/images/img.jpg'); ?>" alt="Profile Image" />
                                                 </span>
-                                                <span>
-                                                    <span>John Smith</span>
-                                                    <span class="time">3 mins ago</span>
-                                                </span>
+
                                                 <span class="message">
                                                     Film festivals used to be do-or-die moments for movie makers. They were where...
                                                 </span>
@@ -214,24 +218,7 @@
                                                 <span class="image">
                                                     <img src="<?php echo asset('assets/images/img.jpg'); ?>" alt="Profile Image" />
                                                 </span>
-                                                <span>
-                                                    <span>John Smith</span>
-                                                    <span class="time">3 mins ago</span>
-                                                </span>
-                                                <span class="message">
-                                                    Film festivals used to be do-or-die moments for movie makers. They were where...
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a>
-                                                <span class="image">
-                                                    <img src="<?php echo asset('assets/images/img.jpg'); ?>" alt="Profile Image" />
-                                                </span>
-                                                <span>
-                                                    <span>John Smith</span>
-                                                    <span class="time">3 mins ago</span>
-                                                </span>
+                                            
                                                 <span class="message">
                                                     Film festivals used to be do-or-die moments for movie makers. They were where...
                                                 </span>

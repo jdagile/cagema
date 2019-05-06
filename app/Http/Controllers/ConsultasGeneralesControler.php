@@ -1,5 +1,5 @@
 <?php
-
+use App\Region;
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -15,7 +15,9 @@ class ConsultasGeneralesControler extends Controller
      */
     public function index()
     {
-            return View('consultasgenerales/inicio');
+      $Region = app('App\Http\Controllers\RegionControler')->show(session('region_id'));
+      $pronostico =$Region->pronostico;
+            return View('consultasgenerales/pronostico'   ,array('pronostico'=>$pronostico));
     }
 
 

@@ -135,10 +135,10 @@ class RegionesEstacionesControler extends Controller
 
                                        $usersController= new UsersController();
                                        $user= $usersController->UsuarioPorEmail(session('email') );
-                                         $RegionesEstaciones = new RegionesEstaciones();
-                                         $RegionesEstaciones->region_id = $All_input['regiones'];
-                                         $RegionesEstaciones->estaciones_id = $All_input['estaciones'];
-                                         $RegionesEstaciones->estaactivo = $estaactivo;
+                                       $RegionesEstaciones = new RegionesEstaciones();
+                                       $RegionesEstaciones->region_id = $All_input['regiones'];
+                                       $RegionesEstaciones->estaciones_id = $All_input['estaciones'];
+                                       $RegionesEstaciones->estaactivo = $estaactivo;
                                        $RegionesEstaciones->id_usuariocreo= $usersController->UsuarioPorEmail(session('email') );
                                        $RegionesEstaciones->save();
                                        Session::flash('flash_message', 'Se Guardo Exitosamente!');

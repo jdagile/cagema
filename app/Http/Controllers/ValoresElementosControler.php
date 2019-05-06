@@ -13,6 +13,26 @@ class ValoresElementosControler extends Controller
       return $promedios_por_regiontiempo;
   }
 
+  public  function Precipitacion_promedio_por_region()
+  {
+
+    $precipitacion_promedio_por_region =  DB::select('select * from public."precipitacion_promedio_por_region"('.session('region_id').')  ');
+      return $precipitacion_promedio_por_region;
+  }
+
+  public  function Precipitacion_acumulada_por_FaseFenologica()
+  {
+
+    $precipitacionacumulada =  DB::select('select * from public."precipitacion_acumulada_por_fase"('.session('region_id').')  ');
+    $valores = array();
+    foreach($precipitacionacumulada as $r){
+
+        $valores[] = $r;
+    }
+$precipitacionacumulada= $valores;
+      return $precipitacionacumulada;
+  }
+
     public function store( $valoresElementos)
     {
       try {

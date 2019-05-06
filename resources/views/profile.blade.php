@@ -17,7 +17,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>Manage Your Profile</h3>
+            <h3>Gestione su perfil</h3>
         </div>
         <div class="title_right">
             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
@@ -42,14 +42,14 @@
                     <form  ng-app="ngProfileApp" ng-controller="ngProfileController" id="users-form" enctype="multipart/form-data" class="form-horizontal form-label-left" method="post" action='{!! route("userprofileupdate") !!}' autocomplete="off">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input ng-model='user.name' type="text" id="name" name='name' required="required" class="form-control col-md-7 col-xs-12" ><ul class="parsley-errors-list" ></ul>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">E-mail<span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Correo<span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input ng-model='user.email' type="text" id="email" name="email"  autocomplete="new-email" required="required" class="form-control col-md-7 col-xs-12" ><ul class="parsley-errors-list" ></ul>
@@ -65,13 +65,13 @@
 
                         </div>
                         <div class="form-group">
-                            <label for="password" class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
+                            <label for="password" class="control-label col-md-3 col-sm-3 col-xs-12">Contraseña</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input id="password" class="form-control col-md-7 col-xs-12" type="password" name="password" autocomplete="new-password" ><ul class="parsley-errors-list" ></ul>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="image" class="control-label col-md-3 col-sm-3 col-xs-12">Profile Picture</label>
+                            <label for="image" class="control-label col-md-3 col-sm-3 col-xs-12">Foto de perfil</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="file" name="image" />
                             </div>
@@ -80,8 +80,8 @@
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button type="reset" class="btn btn-primary cancel">Cancel</button>
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="reset" class="btn btn-primary cancel">Cancelar</button>
+                                <button type="submit" class="btn btn-success">Guardar</button>
                             </div>
                         </div>
 

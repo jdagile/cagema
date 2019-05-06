@@ -13,6 +13,7 @@ use Session;
 use Yajra\Datatables\Facades\Datatables;
 use Validator;
 use DB;
+
 class RegionControler extends Controller
 {
 
@@ -151,7 +152,7 @@ class RegionControler extends Controller
        }
 
 
-      
+
 
 
 

@@ -26,7 +26,7 @@
                         <div class="title_left">
                             <h3>Roles
                                 <small>
-                                    Users's Roles
+                                     Roles de usuarios
                                 </small>
                             </h3>
                         </div>
@@ -47,19 +47,14 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Manage Roles</h2>
-                                    <button class="btn btn-primary form-modal-button" data-toggle="modal" data-target=".form-modal">Add New Role</button>
+                                    <h2>Gestión de Roles</h2>
+                                    <button class="btn btn-primary form-modal-button" data-toggle="modal" data-target=".form-modal">Agregar nuevo rol Role</button>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a href="#"><i class="fa fa-chevron-up"></i></a>
                                         </li>
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Settings 1</a>
-                                                </li>
-                                                <li><a href="#">Settings 2</a>
-                                                </li>
-                                            </ul>
+
                                         </li>
                                         <li><a href="#"><i class="fa fa-close"></i></a>
                                         </li>
@@ -89,7 +84,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myLargeModalLabel">Role Name
+        <h4 class="modal-title" id="myLargeModalLabel"> Rol
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
@@ -99,7 +94,7 @@
         <form  ng-app="ngRolesApp" ng-controller="ngRolesController" id="roles-form" class="form-horizontal form-label-left" method="post" action='{!! route("rolescreateorupdate") !!}' autocomplete="off">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre corto <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input ng-model='role.name' type="text" id="name" name='name' required="required" class="form-control col-md-7 col-xs-12" >
@@ -107,7 +102,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Display Name<span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nombre desplegable<span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input ng-model='role.display_name' type="text" id="display_name" name='display_name' required="required" class="form-control col-md-7 col-xs-12" >
@@ -115,12 +110,19 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Description <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Descripción <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input ng-model='role.description' type="text" id="description" name='description' required="required" class="form-control col-md-7 col-xs-12" >
                                 <label class='danger alert-danger' ng-repeat='descriptionError in moduleerrors.description' ng-bind='descriptionError'></label>
                             </div>
+                        </div>
+                        <div class="title_left">
+                            <h3>Permiso
+                                <small>
+                                    Seleccione los permisos que tendra este rol.
+                                </small>
+                            </h3>
                         </div>
                         <div class="form-group" ng-repeat="permission in permissions track by $index">
                             <div class="checkbox">

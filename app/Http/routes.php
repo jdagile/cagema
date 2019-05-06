@@ -30,6 +30,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/login1', array('uses' => 'UsersController@Login1'));
     Route::post('/login1', array('uses' => 'UsersController@auth1'));
 
+    Route::get('/confirmation/{token}', array('uses' => 'UsersController@getConfirmation','as'=>'confirmation'));
     Route::get('/register', array('uses' => 'UsersController@register'));
     Route::post('/register', array('uses' => 'UsersController@RegisterPost'));
     Route::get('/install', array('uses' => 'InstallController@index'));
@@ -65,7 +66,8 @@ Route::group(['middleware' => ['web', 'auth','permission:regionesestaciones','XS
   //Manage Permissions
   require(app_path() . '/Http/Routes/regionesestaciones.php');
 });
-Route::group(['middleware' => ['web', 'auth','permission:inicio','XSS']], function () {
+
+Route::group(['middleware' => ['web', 'auth','permission:pronostico','XSS']], function () {
   //Manage Permissions
   require(app_path() . '/Http/Routes/consultasgenerales.php');
 });

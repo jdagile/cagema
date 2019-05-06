@@ -25,9 +25,16 @@ Class DashBoardController extends Controller
        $CantidadDeEstaciones = app('App\Http\Controllers\RegionesEstacionesControler')->CantidadDeEstaciones(session('region_id'));
         //valore acumulados de la region de los ultimos 5 $dias
        $PromediosDeLaRegion = app('App\Http\Controllers\ValoresElementosControler')->PromediosPorSectoryTiempo();
+      $Precipitacion_promedio = app('App\Http\Controllers\ValoresElementosControler')->Precipitacion_promedio_por_region();
+      $precipitacionacumulada= app('App\Http\Controllers\ValoresElementosControler')->Precipitacion_acumulada_por_FaseFenologica();
+      foreach($Precipitacion_promedio as $pr){
+      $Precipitacion_promedio_por_region = $pr->out_promedio;
+         }
+
+
   $ValorPromedioTemperatura  =0;
   $ValorPromedioHumedadRelativa =0;
-    $ValorPromedioVelocidadDelViento =0;
+  $ValorPromedioVelocidadDelViento =0;
 
        foreach($PromediosDeLaRegion as $pr){
           if($pr->out_id_elemento==10)
@@ -43,13 +50,13 @@ Class DashBoardController extends Controller
               $ValorPromedioVelocidadDelViento = $pr->out_valor;
           }
 
-       }
+           }
     //   alertas del sector o region de usuario  generadas en el dia $mesActual
        $alertaderegion = app('App\Http\Controllers\RegionesAlertasControler')->GetalAlertaDeRegion();
 
      return view('dashboard',array('UsersCount'=>$UsersCount,'UsersCountLasWeekPercentage'=>$UsersCountLasWeekPercentage,'humedad_relativa'=>$humedad_relativa,
      'temperatura_ambiente'=>$temperatura_ambiente,'sectordeusuario'=>$sectorDeUsuario , 'cantidaddeestaciones' =>$CantidadDeEstaciones ,'valorpromediotemperatura' =>$ValorPromedioTemperatura,'valorpromediohumedadrelativa' => $ValorPromedioHumedadRelativa,
-     'valorpromediovelocidaddelviento' => $ValorPromedioVelocidadDelViento ),compact('alertaderegion'));
+     'valorpromediovelocidaddelviento' => $ValorPromedioVelocidadDelViento ,'valorpromedioprecipitacion'=> $Precipitacion_promedio_por_region ,'precipitacionacumulada'=> $precipitacionacumulada ),compact('alertaderegion')   );
 
     }
 

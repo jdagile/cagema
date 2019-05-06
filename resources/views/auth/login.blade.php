@@ -5,12 +5,13 @@
 <script type="text/javascript" src="<?php echo asset('assets/js/ng-form-plugin.js'); ?>"></script>
 <script src="{{asset('assets/js/angular.js')}}" ></script>
 <script stype="text/javascript">
-    var ngLoginApp = angular.module('ngLoginApp', [], function($interpolateProvider)
-        {$interpolateProvider.startSymbol('<%');$interpolateProvider.endSymbol('%>');});
-        ngLoginApp.controller('ngLoginController', function($scope) {
-        $scope.login=[];
-        $scope.regions={!! $regions !!};
-               $('#login-form').Submit({Type:'POST',Data:{'_token':'<?php echo csrf_token();?>'},ModuleName:'logins',ModuleItemName:'login',NgAppName:'ngLoginApp'});
+var ngUsersApp = angular.module('ngUsersApp', [], function($interpolateProvider)
+    {$interpolateProvider.startSymbol('<%');$interpolateProvider.endSymbol('%>');});
+    ngUsersApp.controller('ngUsersController', function($scope) {
+    $scope.user=[];
+    $scope.regions={!! $regions !!};
+    $('#users-form').Edit({Type:'GET',Data:{'_token':'<?php echo csrf_token();?>'},ModuleName:'users',ModuleItemName:'user',NgAppName:'ngUsersApp'});
+   $('#users-form').Submit({Type:'POST',Data:{'_token':'<?php echo csrf_token();?>'},ModuleName:'users',ModuleItemName:'user',NgAppName:'ngUsersApp'});
 
     });
 </script>
@@ -34,7 +35,7 @@
     <div class="">
         <a class="hiddenanchor" id="toregister"></a>
         <a class="hiddenanchor" id="tologin"></a>
-
+        <a class="hiddenanchor" id="topasswordreset"></a>
         <div id="wrapper">
             <div id="login" class="animate form">
                 <section class="login_content">
@@ -57,6 +58,9 @@
 
                                                   <p style="color: white" class="change_link"> quieres registrarte ?
                                                       <a style="color: white" href="#toregister" class="to_register"> Crea una Cuenta ! </a>
+                                                  </p>
+                                                  <p style="color: white" class="change_link"> olvidaste contraseña ?
+                                                      <a style="color: white" href="#topasswordreset" class="to_register"> cambiala ! </a>
                                                   </p>
                                                   <div class="clearfix"></div>
                                                   <br />
@@ -82,39 +86,36 @@
             </div>
             <div id="register" class="animate form">
                 <section class="login_content">
-                    <form id="login-form" ng-app="ngLoginApp" ng-controller="ngLoginController" method="POST" action="{!! url('/register') !!}" data-parsley-validate>
-                        {!! csrf_field() !!}
-                        <img src ="{{ asset('app/media/img//logos/logo-1.png')}}" alt ="logo">
-                       <h1 style="color : white;">CicohAlert</h1>
-                        <h3 style="color: white">Crear Cuenta</h3>
-                        <div>
-                               <select name="regions" id="regions" class="form-control">
-                                      <option ng-selected="login.regions_id==region.id" ng-repeat="region in regions" value="<% region.id %>" ><% region.descripcion %></option>
-                                </select>
-                        </div>
-                        <br>
-                        <div>
-                            <input type="text" class="form-control" name="username" placeholder="Ingrese su Nombre y apellido." required="" />
-                        </div>
-                        <div>
-                            <input type="email" class="form-control" name="email" placeholder="Ingrese su correo." required="" />
-                        </div>
-                        <div>
-                            <input type="password" class="form-control" name="password" placeholder="Ingrese su Contraseña." required="" />
+                  @if ( Session::has('alert') )
+                  <div  class="alert {{ Session::get('alert') }}" >
+                      <p class="alert alert-success"> {{ Session::get('alert') }}</p>
+                  </div>
+                @endif
+                  <form method="POST" action="{!! url('/register') !!}" data-parsley-validate>
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                      <h1>Crear Cuenta</h1>
+                      <div>
+                          <input type="text" class="form-control" name="username" placeholder="Username" required="" />
+                      </div>
+                      <div>
+                          <input type="email" class="form-control" name="email" placeholder="Email" required="" />
+                      </div>
+                      <div>
+                          <input type="password" class="form-control" name="password" placeholder="Password" required="" />
 
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-default submit">Guardar</button>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div class="separator">
+                      </div>
+                      <div>
+                          <button type="submit" class="btn btn-default submit">Registrar</button>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="separator">
 
-                            <p style="color: white" class="change_link">Estas registrado ?
-                                <a style="color: white" href="#tologin" class="to_register"> Inicio de sesión </a>
-                            </p>
-                            <div class="clearfix"></div>
-                        </div>
-                    </form>
+                          <p class="change_link">Estas registrado ?
+                              <a href="#tologin" class="to_register"> Iniciar session </a>
+                          </p>
+                          <div class="clearfix"></div>
+                      </div>
+                  </form>
                     <!-- form -->
                 </section>
                 <!-- content -->
@@ -133,7 +134,7 @@
                         <div class="clearfix"></div>
                         <div class="separator">
 
-                            <p class="change_link">Already a member ?
+                            <p class="change_link">Estas registrado ?
                                 <a href="#tologin" class="to_register"> Iniciar Sesión </a>
                             </p>
                             <div class="clearfix"></div>
@@ -153,5 +154,7 @@
 
 
 </body>
-
+<script type="text/javascript">
+  setTimeout("$('.alert').fadeOut('slow')", 8000)
+   </script>
 </html>

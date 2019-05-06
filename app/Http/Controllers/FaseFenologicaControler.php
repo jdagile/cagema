@@ -103,6 +103,8 @@ class FaseFenologicaControler extends Controller
                         $FaseFenologicas = FaseFenologica::where('id', $All_input['id'])->first();
                         $FaseFenologicas->descripcion = $All_input['descripcion'];
                         $FaseFenologicas->estaactivo = $estaactivo;
+                        $FaseFenologicas->fechainicio = $All_input['fechainicio'];
+                        $FaseFenologicas->fechafin = $All_input['fechafin'];
                         $FaseFenologicas->id_usuariomodifico=$usersController->UsuarioPorEmail(session('email') );
                         $FaseFenologicas->save();
                         Session::flash('flash_message', 'Se Edito Exitosamente!');
@@ -123,6 +125,8 @@ class FaseFenologicaControler extends Controller
                                          $FaseFenologicas->descripcion = $All_input['descripcion'];
                                          $FaseFenologicas->estaactivo = $estaactivo;
                                          $FaseFenologicas->id_usuariocreo= $usersController->UsuarioPorEmail(session('email') );
+                                         $FaseFenologicas->fechainicio = $All_input['fechainicio'];
+                                         $FaseFenologicas->fechafin = $All_input['fechafin'];
                                          $FaseFenologicas->save();
                                          Session::flash('flash_message', 'Se Guardo Exitosamente!');
                                          Session::flash('flash_type', 'alert-success');

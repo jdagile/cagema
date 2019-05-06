@@ -47,7 +47,7 @@
                         <div class="left"></div>
                         <div class="right">
                             <span class="count_top"><i class="fa fa-cloud"></i> Precipitacion acumulada del sector </span>
-                            <div class="count">0.60</div>
+                            <div class="count"><?php echo $valorpromedioprecipitacion ; ?></div>
                             <span class="count_bottom"><i class="blue">mm <i class="fa fa-sort-asc"></i></i> milimetros</span>
                         </div>
                     </div>
@@ -79,8 +79,8 @@
                                                 <tbody>
                                                 @foreach($alertaderegion as $alert)
                                                     <tr>
-                                                        <td>
-                                                          {{$alert->alerta}}
+                                                        <td class="blue">
+                                                    <h3>  {{$alert->alerta}} </h3>
                                                          </td>
                                                      </tr>
                                                 @endforeach
@@ -109,6 +109,53 @@
 
                             <div class="clearfix"></div>
                         </div>
+
+
+                        <h3>Precipitación Acumulada por fase fenológica</h3>
+                            <div class="clearfix"></div>
+                            <div class="panel-body">
+                                  <table class="table table-bordered" id='alertas'>
+                                            <thead>
+
+                                            <th>Fase Fenológica</th>
+                                            <th>Valor Mínimo Requerido(mm)</th>
+                                            <th>Valor Acumulado (mm)</th>
+                                            <th>Porcentaje (%)</th>
+                                            </thead>
+                                            <tbody>
+                                              @foreach( $precipitacionacumulada as $pa)
+                                                  <tr>
+                                                      <td class="gray">
+                                                  <h4>  {{$pa->out_fasefenologica}} </h4>
+                                                       </td>
+                                                       <td class="blue">
+                                                   <h4>  {{$pa->out_requerido}} </h4>
+                                                        </td>
+                                                        <td class="gray">
+                                                    <h4>  {{$pa->out_acumulado}} </h4>
+                                                         </td>
+                                                         <td class="blue">
+                                                     <h4>
+
+                                                       <div class="progress">
+                                                       <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{$pa->out_acumulado}}%" aria-valuenow="100" aria-valuemin="76" aria-valuemax="100"></div>
+                                                        </div> {{$pa->out_acumulado}} %
+
+
+                                                     </h4>
+                                                          </td>
+                                                   </tr>
+
+                                              @endforeach
+                                            </tbody>
+                                        </table>
+                            </div>
+
+
+                      </div>
+
+
+
                     </div>
 
                 </div>

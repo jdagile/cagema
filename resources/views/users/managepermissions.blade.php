@@ -11,13 +11,13 @@
 
         /* set the size of the datepicker search control for Order Date*/
         #ui-datepicker-div { font-size:11px; }
-        
+
         /* set the size of the autocomplete search control*/
         .ui-menu-item {
             font-size: 11px;
         }
 
-         .ui-autocomplete { font-size: 11px; position: absolute; cursor: default;z-index:5000 !important;}      
+         .ui-autocomplete { font-size: 11px; position: absolute; cursor: default;z-index:5000 !important;}
 
     </style>
                 <div class="">
@@ -55,12 +55,7 @@
                                         </li>
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">Settings 1</a>
-                                                </li>
-                                                <li><a href="#">Settings 2</a>
-                                                </li>
-                                            </ul>
+
                                         </li>
                                         <li><a href="#"><i class="fa fa-close"></i></a>
                                         </li>
@@ -71,10 +66,10 @@
                                     <table id="jqGrid"></table>
     <div id="jqGridPager"></div>
 
-    <script type="text/javascript"> 
+    <script type="text/javascript">
         $(document).ready(function () {
-            
-            
+
+
         	var template = "<div style='margin-left:15px;'><div> ID <sup>*</sup>:</div><div> {id} </div>";
 			template += "<div> Role Name: </div><div>{name} </div>";
 			template += "<div> <input type='hidden' name='_token' id='_token' value='{{{ csrf_token() }}}' /></div>";
@@ -101,7 +96,7 @@
                 ],
                  viewrecords: true,width: 1000,height: 300,rowNum: 20,multiselect: true,pager: "#jqGridPager"
             });
-            
+
               // We need to have a navigation bar in order to add custom buttons to it
             $('#jqGrid').navGrid('#jqGridPager',
                 { edit: true, add: true, del: true, search: true, refresh: true, view: true, position: "left", cloneToTop: true },
@@ -114,12 +109,12 @@
                         errorTextFormat: function (data) {return 'Error: ' + data.responseText}
                 },
                 {       deleteCaption: "Delete",template: template,url:'<?php echo URL('users/roles'); ?>',
-                        
+
                         onclickSubmit: function(params, postdata){postdata._token = '{{{ csrf_token() }}}'},
                         errorTextFormat: function (data) {return 'Error: ' + data.responseText}
                 }
                 );
-                
+
            /// add second custom button
            $('#jqGrid').navButtonAdd('#jqGridPager',
                 {
@@ -133,7 +128,7 @@
                 { var id=$("#jqGrid").jqGrid('getGridParam',"selarrrow");
                     if(id !=null)
                     {$res=confirm('are you sure');
-                
+
                  if($res){$.ajax({
                          url:'<?php echo URL('users/roles'); ?>',
                          type:'POST',
@@ -145,7 +140,7 @@
                 }
 
         });
- 
+
    </script>
                                 </div>
                             </div>
@@ -158,10 +153,10 @@
                     </div>
                 </div>
     @stop
-    
+
     @section('footer')
     <script type="text/ecmascript" src="<?php echo asset('assets/js/jquerygrid/trirand/i18n/grid.locale-en.js') ?>"></script>
-    <!-- This is the Javascript file of jqGrid -->   
+    <!-- This is the Javascript file of jqGrid -->
     <script type="text/ecmascript" src="<?php echo asset('assets/js/jquerygrid/trirand/jquery.jqGrid.min.js') ?>"></script>
     <script type="text/ecmascript" src="<?php echo asset('assets/js/jquerygrid/jquery-ui.min.js') ?>"></script>
 
